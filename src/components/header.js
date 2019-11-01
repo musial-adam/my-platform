@@ -20,6 +20,12 @@ const Header = ({ siteTitle }) => (
         <StyledLink to="/blog">
           <Button variant="outlined">Blog</Button>
         </StyledLink>
+        <StyledLink to="/tuts">
+          <Button variant="outlined">Tutorials</Button>
+        </StyledLink>
+        <StyledLink to="/uses">
+          <Button variant="outlined">Uses</Button>
+        </StyledLink>
         <StyledLink to="/about">
           <Button variant="outlined">About</Button>
         </StyledLink>
