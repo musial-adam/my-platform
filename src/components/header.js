@@ -1,33 +1,30 @@
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
+import styled from 'styled-components'
+
+import { AppBar, Button, Toolbar } from '@material-ui/core'
+
+const StyledLink = styled(Link)`
+  margin-right: 10px;
+  text-decoration: none;
+`
 
 const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
+  <header>
+    <AppBar position="static">
+      <Toolbar variant="dense">
+        <StyledLink to="/">
+          <Button variant="outlined">Home</Button>
+        </StyledLink>
+        <StyledLink to="/blog">
+          <Button variant="outlined">Blog</Button>
+        </StyledLink>
+        <StyledLink to="/about">
+          <Button variant="outlined">About</Button>
+        </StyledLink>
+      </Toolbar>
+    </AppBar>
   </header>
 )
 
