@@ -27,17 +27,17 @@ export const YouTubeIcon = props => (
 
 export const SocialMediaIconButtons = () => (
   <>
-  <IconButton>
-          <GitHubIcon />
-        </IconButton>
-        <IconButton>
-          <TwitterIcon />
-        </IconButton>
-        <IconButton>
-          <InstagramIcon />
-        </IconButton>
-        <IconButton>
-          <YouTubeIcon />
-        </IconButton>
-        </>
+    <IconButton>
+      <GitHubIcon />
+    </IconButton>
+    <IconButton>
+      <TwitterIcon />
+    </IconButton>
+    <IconButton>
+      <InstagramIcon />
+    </IconButton>
+    <IconButton>
+      <YouTubeIcon />
+    </IconButton>
+  </>
 )
