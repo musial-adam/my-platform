@@ -3,6 +3,12 @@ module.exports = {
     title: `my-platform`,
     description: `My platform for blog, tutorials, etc.`,
     author: `Adam Musial`,
+
+    links: {
+      name: `github`,
+      url: `https://github.com/musial-adam`,
+      icon: ``,
+    },
   },
   plugins: [
     `gatsby-plugin-mdx`,
