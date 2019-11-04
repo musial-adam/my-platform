@@ -1,10 +1,4 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
-
-// You can delete this file if you're not using it
+// Create Pages API implementation
 
 const path = require('path')
 
@@ -17,6 +11,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       allMdx {
         edges {
           node {
+            id
             frontmatter {
               title
               slug
@@ -28,7 +23,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   `)
 
   if (result.error) {
-    reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query')
+    reporter.panicOnBuild('ERROR: Loading "createPages" query')
   }
 
   const posts = result.data.allMdx.edges
@@ -42,7 +37,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       // },
       context: {
         id: node.id,
+        // data: node,
       },
     })
   })
 }
+
+// End of Create Pages API implementation

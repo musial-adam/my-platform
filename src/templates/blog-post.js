@@ -5,8 +5,8 @@ import Layout from '../components/layout'
 
 const BlogPost = ({ data: { mdx } }) => (
   <Layout>
-    <h1>Hi, I am a template</h1>
     <h1>{mdx.frontmatter.title}</h1>
+    {console.log(mdx)}
     <MDXRenderer>{mdx.body}</MDXRenderer>
   </Layout>
 )
