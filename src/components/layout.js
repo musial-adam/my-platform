@@ -37,9 +37,11 @@ const Layout = ({ children }) => {
       <ThemeProvider theme={theme}>
         <Container maxWidth="md">
           <Header siteTitle={data.site.siteMetadata.title} />
-          <div>
-            <main>{children}</main>
-          </div>
+          {/* <div> */}
+          {/* <main> */}
+          {children}
+          {/* </main> */}
+          {/* </div> */}
           <Footer />
         </Container>
       </ThemeProvider>

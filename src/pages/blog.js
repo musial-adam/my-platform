@@ -2,17 +2,36 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 import styled from 'styled-components'
 
+import { Card, Container } from '@material-ui/core'
+
 import Layout from '../components/layout'
-// import TestComponent from '../components/test-component'
-// import { GitHubIcon } from '../components/icons'
+import PostCard from '../components/post-card'
 
 const StyledLink = styled(Link)`
   /* margin-right: 10px; */
   text-decoration: none;
 `
 
-const Wrapper = styled.div`
-  border: 1px solid green;
+const StyledContainer = styled(Container)`
+  background-color: lightgray;
+  padding: 30px;
+
+  /* p {
+    margin: 0;
+  } */
+`
+
+const StyledCard = styled(Card)`
+  padding: 20px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  h2 {
+    border: 1px solid orange;
+    margin: 0;
+  }
 `
 
 const BlogPage = ({ data }) => {
@@ -21,18 +40,20 @@ const BlogPage = ({ data }) => {
   const postsList = posts.map(post => (
     <React.Fragment key={post.node.id}>
       <StyledLink to={`/blog/${post.node.frontmatter.slug}`}>
-        <Wrapper>
-          <h1>{post.node.frontmatter.title}</h1>
-          <h2>{post.node.frontmatter.date}</h2>
-        </Wrapper>
+        <StyledCard>
+          <h2>{post.node.frontmatter.title}</h2>
+          <h3>{post.node.frontmatter.date}</h3>
+        </StyledCard>
       </StyledLink>
     </React.Fragment>
   ))
 
   return (
     <Layout>
-      {console.log(posts)}
-      {postsList}
+      <StyledContainer>
+        <PostCard />
+        {/* {postsList} */}
+      </StyledContainer>
     </Layout>
   )
 }
@@ -48,7 +69,6 @@ export const pageQuery = graphql`
           frontmatter {
             slug
             title
-            # date(formatString: "MMMM DD, YYYY")
             date
           }
         }
