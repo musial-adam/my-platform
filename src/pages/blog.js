@@ -48,11 +48,29 @@ const BlogPage = ({ data }) => {
     </React.Fragment>
   ))
 
+  const postsL = posts.map(post => {
+    const { id, timeToRead } = post.node
+    const { title, date, blurb, slug, tags } = post.node.frontmatter
+
+    return (
+      <PostCard
+        key={id}
+        title={title}
+        date={date}
+        timeToRead={timeToRead}
+        blurb={blurb}
+        tags={tags}
+        url={slug}
+      />
+    )
+  })
+
   return (
     <Layout>
       <StyledContainer>
-        <PostCard />
-        {postsList}
+        {/* <PostCard /> */}
+        {/* {postsList} */}
+        {postsL}
       </StyledContainer>
     </Layout>
   )
@@ -70,6 +88,8 @@ export const pageQuery = graphql`
             slug
             title
             date(formatString: "MMMM D, YYYY")
+            blurb
+            tags
           }
           timeToRead
         }

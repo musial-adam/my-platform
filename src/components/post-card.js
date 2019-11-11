@@ -10,10 +10,10 @@ import {
   Typography,
 } from '@material-ui/core'
 
-import GatsbyImg from '../images/gatsby-icon.png'
-import GitHubSVG from '../images/github-circle.svg'
-import TwitterSVG from '../images/twitter-circle.svg'
-import ReactSVG from '../images/react.svg'
+// import GatsbyImg from '../images/gatsby-icon.png'
+// import GitHubSVG from '../images/github-circle.svg'
+// import TwitterSVG from '../images/twitter-circle.svg'
+// import ReactSVG from '../images/react.svg'
 
 import avatarPicker from '../utils/avatarPicker'
 
@@ -21,7 +21,7 @@ import avatarPicker from '../utils/avatarPicker'
 
 const StyledCard = styled(Card)`
   max-width: 70%;
-  margin: 0 auto;
+  margin: 10px auto;
 `
 
 const StyledCardHeader = styled(CardHeader)`
@@ -41,25 +41,37 @@ const TagsContainer = styled.div`
   /* justify-content: space-between; */
 `
 
-const PostCard = () => {
+const PostCard = ({ title, date, timeToRead, blurb, tags }) => {
+  const ttr =
+    timeToRead > 1
+      ? `Time to read: ${timeToRead} minutes`
+      : `Time to read: 1 minute`
+
+  console.log(tags)
+
+  const tagL = tags
+
+  // const chips = tags.map(tag => <p>tag</p>)
+
+  const chips = tags.map(tag => (
+    <StyledChip avatar={avatarPicker(tag)} label={tag} />
+  ))
+
   return (
     <StyledCard>
-      <StyledCardHeader
-        title="This is dummy header"
-        subheader="November 11, 2019"
-      />
+      <StyledCardHeader title={title} subheader={date} />
 
       <StyledCardContent>
         <Typography component="h3" variant="overline" paragraph>
-          Time to read: 5 minutes
+          {ttr}
         </Typography>
 
         <Typography component="p" variant="body1" paragraph>
-          ... and this is dummy content
+          {blurb}
         </Typography>
 
         <TagsContainer>
-          <StyledChip
+          {/* <StyledChip
             avatar={<Avatar src={GatsbyImg} />}
             color="default"
             label="Gatsby"
@@ -78,7 +90,8 @@ const PostCard = () => {
             avatar={<Avatar src={TwitterSVG} />}
             color="default"
             label="Twiterrolloo"
-          />
+          /> */}
+          {chips}
         </TagsContainer>
       </StyledCardContent>
     </StyledCard>
