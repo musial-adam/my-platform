@@ -1,9 +1,16 @@
+// !! I am using Styles Provider here to make sure my Styled Components always override Material UI
+// !! URL to docs: https://material-ui.com/guides/interoperability/#styled-components
+
 import React from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 
 import { CssBaseline, Container } from '@material-ui/core'
-import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles'
+import {
+  createMuiTheme,
+  StylesProvider,
+  ThemeProvider,
+} from '@material-ui/core/styles'
 
 import { purple } from '@material-ui/core/colors'
 
@@ -35,15 +42,13 @@ const Layout = ({ children }) => {
     <>
       <CssBaseline />
       <ThemeProvider theme={theme}>
-        <Container maxWidth="md">
-          <Header siteTitle={data.site.siteMetadata.title} />
-          {/* <div> */}
-          {/* <main> */}
-          {children}
-          {/* </main> */}
-          {/* </div> */}
-          <Footer />
-        </Container>
+        <StylesProvider injectFirst>
+          <Container maxWidth="md">
+            <Header siteTitle={data.site.siteMetadata.title} />
+            <main>{children}</main>
+            <Footer />
+          </Container>
+        </StylesProvider>
       </ThemeProvider>
     </>
   )

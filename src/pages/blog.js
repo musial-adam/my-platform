@@ -52,7 +52,7 @@ const BlogPage = ({ data }) => {
     <Layout>
       <StyledContainer>
         <PostCard />
-        {/* {postsList} */}
+        {postsList}
       </StyledContainer>
     </Layout>
   )
@@ -69,8 +69,9 @@ export const pageQuery = graphql`
           frontmatter {
             slug
             title
-            date
+            date(formatString: "MMMM D, YYYY")
           }
+          timeToRead
         }
       }
     }
