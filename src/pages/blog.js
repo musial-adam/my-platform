@@ -8,7 +8,6 @@ import Layout from '../components/layout'
 import PostCard from '../components/post-card'
 
 const StyledLink = styled(Link)`
-  /* margin-right: 10px; */
   text-decoration: none;
 `
 
@@ -39,6 +38,7 @@ const BlogPage = ({ data }) => {
 
   return (
     <Layout>
+      {/* <StyledContainer /> */}
       <StyledContainer>{postsList}</StyledContainer>
     </Layout>
   )

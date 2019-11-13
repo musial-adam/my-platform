@@ -18,12 +18,22 @@ import Header from './header'
 import Footer from './footer'
 // import './layout.css'
 
+// const theme = createMuiTheme({
+//   palette: {
+//     primary: {
+//       main: '#00e676',
+//     },
+//     secondary: purple,
+//   },
+// })
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#00e676',
+      main: '#7c4dff',
     },
-    secondary: purple,
+    secondary: {
+      main: '#ffc400',
+    },
   },
 })
 

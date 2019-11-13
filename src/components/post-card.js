@@ -15,7 +15,9 @@ import { ArrowForward } from '@material-ui/icons'
 
 import avatarPicker from '../utils/avatarPicker'
 
-// const StyledButton =
+const StyledButton = styled(Button)`
+  /* background-color: orange; */
+`
 
 const StyledCard = styled(Card)`
   max-width: 70%;
@@ -32,6 +34,12 @@ const StyledCardContent = styled(CardContent)`
 
 const StyledChip = styled(Chip)`
   margin-right: 5px;
+`
+
+const ButtonWrapper = styled.div`
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
 `
 
 const TagsContainer = styled.div`
@@ -66,17 +74,19 @@ const PostCard = ({ title, date, timeToRead, blurb, tags, url }) => {
         </Typography>
 
         <TagsContainer>{chips}</TagsContainer>
-        <StyledLink to={`blog/${url}`}>
-          <Button
-            color="primary"
-            endIcon={<ArrowForward />}
-            raised
-            size="large"
-            variant="contained"
-          >
-            Read post
-          </Button>
-        </StyledLink>
+        <ButtonWrapper>
+          <StyledLink to={`blog/${url}`}>
+            <StyledButton
+              color="secondary"
+              endIcon={<ArrowForward />}
+              raised
+              size="large"
+              variant="contained"
+            >
+              Read post
+            </StyledButton>
+          </StyledLink>
+        </ButtonWrapper>
       </StyledCardContent>
     </StyledCard>
   )
