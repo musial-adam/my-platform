@@ -20,17 +20,6 @@ const StyledContainer = styled(Container)`
 const BlogPage = ({ data }) => {
   const { edges: posts } = data.allMdx
 
-  // const postsList = posts.map(post => (
-  //   <React.Fragment key={post.node.id}>
-  //     <StyledLink to={`/blog/${post.node.frontmatter.slug}`}>
-  //       <StyledCard>
-  //         <h2>{post.node.frontmatter.title}</h2>
-  //         <h3>{post.node.frontmatter.date}</h3>
-  //       </StyledCard>
-  //     </StyledLink>
-  //   </React.Fragment>
-  // ))
-
   const postsList = posts.map(post => {
     const { id, timeToRead } = post.node
     const { title, date, blurb, slug, tags } = post.node.frontmatter
@@ -59,7 +48,7 @@ export default BlogPage
 
 export const pageQuery = graphql`
   query allMDXPosts {
-    allMdx {
+    allMdx(sort: { fields: frontmatter___date, order: DESC }) {
       edges {
         node {
           id

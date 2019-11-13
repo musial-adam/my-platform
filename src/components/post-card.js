@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'gatsby'
 
 import {
+  Button,
   Card,
   CardContent,
   CardHeader,
@@ -9,7 +11,11 @@ import {
   Typography,
 } from '@material-ui/core'
 
+import { ArrowForward } from '@material-ui/icons'
+
 import avatarPicker from '../utils/avatarPicker'
+
+// const StyledButton =
 
 const StyledCard = styled(Card)`
   max-width: 70%;
@@ -32,7 +38,11 @@ const TagsContainer = styled.div`
   display: flex;
 `
 
-const PostCard = ({ title, date, timeToRead, blurb, tags }) => {
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`
+
+const PostCard = ({ title, date, timeToRead, blurb, tags, url }) => {
   const ttr =
     timeToRead > 1
       ? `Time to read: ${timeToRead} minutes`
@@ -56,6 +66,17 @@ const PostCard = ({ title, date, timeToRead, blurb, tags }) => {
         </Typography>
 
         <TagsContainer>{chips}</TagsContainer>
+        <StyledLink to={`blog/${url}`}>
+          <Button
+            color="primary"
+            endIcon={<ArrowForward />}
+            raised
+            size="large"
+            variant="contained"
+          >
+            Read post
+          </Button>
+        </StyledLink>
       </StyledCardContent>
     </StyledCard>
   )
