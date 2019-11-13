@@ -36,10 +36,38 @@ const BlogPage = ({ data }) => {
     )
   })
 
+  // const post = posts[2]
+
+  // const { id, timeToRead } = post.node
+  // const { title, date, blurb, slug, tags } = post.node.frontmatter
+
+  // const SinglePost = (
+  //   <PostCard
+  //     title={title}
+  //     date={date}
+  //     timeToRead={timeToRead}
+  //     blurb={blurb}
+  //     tags={tags}
+  //     url={slug}
+  //   />
+  // )
+
   return (
     <Layout>
-      {/* <StyledContainer /> */}
-      <StyledContainer>{postsList}</StyledContainer>
+      <StyledContainer>
+        {/* <PostCard
+          title="Heloszka"
+          date="10.10.2019"
+          timeToRead="2"
+          blurb="blurb lorem borem mirorosodsdisod soidiosdsiod iosdoisdio siod siodsiod iosdio iosdoi oisdoi sodiosdiosdoidoisd osdio"
+          tags={['hey', 'srags', 'bugs']}
+          url="/siema"
+        /> */}
+        {/* {SinglePost} */}
+        {postsList}
+      </StyledContainer>
+      {/* <StyledContainer>{postsList}</StyledContainer> */}
+      {/* {postsList} */}
     </Layout>
   )
 }
