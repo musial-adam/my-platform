@@ -12,8 +12,14 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-mdx`,
-    `gatsby-plugin-styled-components`,
-
+    // `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        // Add any options here
+        displayName: `true`,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,

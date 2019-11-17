@@ -1,7 +1,11 @@
 import Layout from '../components/layout.js'
+import Dump from '../utils/Dump.js'
+import useSiteMetadata from '../hooks/useSiteMetadata.js'
 
 <Layout>
 
 # About
+
+<Dump siteMetadata={useSiteMetadata()} />
 
 </Layout>

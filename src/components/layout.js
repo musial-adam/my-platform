@@ -3,7 +3,9 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useStaticQuery, graphql } from 'gatsby'
+// import { useStaticQuery, graphql } from 'gatsby'
+
+import styled from 'styled-components'
 
 import { CssBaseline, Container } from '@material-ui/core'
 import {
@@ -12,10 +14,9 @@ import {
   ThemeProvider,
 } from '@material-ui/core/styles'
 
-import { purple } from '@material-ui/core/colors'
-
 import Header from './header'
 import Footer from './footer'
+import GlobalStyle from '../utils/globalStyles'
 // import './layout.css'
 
 // const theme = createMuiTheme({
@@ -23,9 +24,10 @@ import Footer from './footer'
 //     primary: {
 //       main: '#00e676',
 //     },
-//     secondary: purple,
+//     secondary: '#7c4dff',
 //   },
 // })
+
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -37,26 +39,26 @@ const theme = createMuiTheme({
   },
 })
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+const LayoutWrapper = styled.div`
+  width: 800px;
+  /* margin: 0 auto; */
+  margin: 0 auto;
+  border: 4px solid orange;
+`
 
+const Layout = ({ children }) => {
   return (
     <>
       <CssBaseline />
       <ThemeProvider theme={theme}>
         <StylesProvider injectFirst>
+          <GlobalStyle />
           <Container maxWidth="md">
-            <Header siteTitle={data.site.siteMetadata.title} />
+            {/* <LayoutWrapper> */}
+            <Header />
             <main>{children}</main>
             <Footer />
+            {/* </LayoutWrapper> */}
           </Container>
         </StylesProvider>
       </ThemeProvider>

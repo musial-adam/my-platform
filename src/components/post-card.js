@@ -50,7 +50,7 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 `
 
-const PostCard = ({ title, date, timeToRead, blurb, tags, url }) => {
+const PostCard = ({ title, date, timeToRead, description, tags, url }) => {
   const ttr =
     timeToRead > 1
       ? `Time to read: ${timeToRead} minutes`
@@ -70,7 +70,7 @@ const PostCard = ({ title, date, timeToRead, blurb, tags, url }) => {
         </Typography>
 
         <Typography component="p" variant="body1" paragraph>
-          {blurb}
+          {description}
         </Typography>
 
         <TagsContainer>{chips}</TagsContainer>

@@ -1,5 +1,4 @@
 import { Link } from 'gatsby'
-import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
 
@@ -10,7 +9,7 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 `
 
-const Header = ({ siteTitle }) => (
+const Header = () => (
   <header>
     <AppBar position="static">
       <Toolbar variant="dense">
@@ -33,13 +32,5 @@ const Header = ({ siteTitle }) => (
     </AppBar>
   </header>
 )
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
 
 export default Header

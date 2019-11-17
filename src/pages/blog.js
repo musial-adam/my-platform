@@ -21,7 +21,7 @@ const BlogPage = ({ data }) => {
 
   const postsList = posts.map(post => {
     const { id, timeToRead } = post.node
-    const { title, date, blurb, slug, tags } = post.node.frontmatter
+    const { title, date, description, slug, tags } = post.node.frontmatter
 
     return (
       <PostCard
@@ -29,7 +29,7 @@ const BlogPage = ({ data }) => {
         title={title}
         date={date}
         timeToRead={timeToRead}
-        blurb={blurb}
+        description={description}
         tags={tags}
         url={slug}
       />
@@ -75,8 +75,28 @@ const BlogPage = ({ data }) => {
 export default BlogPage
 
 export const pageQuery = graphql`
+  # query allMDXPosts {
+  #   allMdx(sort: { fields: frontmatter___date, order: DESC }) {
+  #     edges {
+  #       node {
+  #         id
+  #         frontmatter {
+  #           slug
+  #           title
+  #           date(formatString: "MMMM D, YYYY")
+  #           blurb
+  #           tags
+  #         }
+  #         timeToRead
+  #       }
+  #     }
+  #   }
+  # }
   query allMDXPosts {
-    allMdx(sort: { fields: frontmatter___date, order: DESC }) {
+    allMdx(
+      sort: { fields: frontmatter___date, order: DESC }
+      filter: { frontmatter: { published: { eq: true } } }
+    ) {
       edges {
         node {
           id
@@ -84,7 +104,7 @@ export const pageQuery = graphql`
             slug
             title
             date(formatString: "MMMM D, YYYY")
-            blurb
+            description
             tags
           }
           timeToRead
