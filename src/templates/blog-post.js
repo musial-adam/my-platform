@@ -1,7 +1,12 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import { Avatar, Chip } from '@material-ui/core'
+import { Avatar, Button, Chip } from '@material-ui/core'
+
+import { ArrowBack, ArrowForward } from '@material-ui/icons'
+
+import styled from 'styled-components'
+
 import Layout from '../components/layout'
 
 import GatsbyImg from '../images/gatsby-icon.png'
@@ -20,10 +25,46 @@ const avatarPicker = tag => {
   }
 }
 
-const BlogPost = ({ data: { mdx } }) => {
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`
+
+const BlogPost = ({ data, pageContext }) => {
+  const { mdx } = data
+
+  const { prevUrl, nextUrl } = pageContext
+
   const { tags } = mdx.frontmatter
 
   const chips = tags.map(tag => <Chip avatar={avatarPicker(tag)} label={tag} />)
+
+  const nextPostLink = nextUrl && (
+    <StyledLink to={`blog/${nextUrl}`}>
+      <Button
+        color="secondary"
+        endIcon={<ArrowForward />}
+        raised
+        size="large"
+        variant="contained"
+      >
+        Next
+      </Button>
+    </StyledLink>
+  )
+
+  const prevPostLink = prevUrl && (
+    <StyledLink to={`blog/${prevUrl}`}>
+      <Button
+        color="secondary"
+        endIcon={<ArrowBack />}
+        raised
+        size="large"
+        variant="contained"
+      >
+        Previous
+      </Button>
+    </StyledLink>
+  )
 
   return (
     <Layout>
@@ -31,6 +72,10 @@ const BlogPost = ({ data: { mdx } }) => {
       {console.log(mdx)}
       {chips}
       <MDXRenderer>{mdx.body}</MDXRenderer>
+      {/* {nextUrl && <Link to={`blog/${nextUrl}`}>Next</Link>} */}
+      {nextPostLink}
+      {/* {prevUrl && <Link to={`blog/${prevUrl}`}>Previous</Link>} */}
+      {prevPostLink}
     </Layout>
   )
 }

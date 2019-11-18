@@ -8,11 +8,15 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const result = await graphql(`
     query PostsMDX {
-      allMdx {
+      allMdx(
+        sort: { fields: frontmatter___date, order: DESC }
+        filter: { frontmatter: { published: { eq: true } } }
+      ) {
         edges {
           node {
             id
             frontmatter {
+              title
               slug
             }
           }
@@ -27,7 +31,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const posts = result.data.allMdx.edges
 
-  posts.forEach(({ node }) => {
+  posts.forEach(({ node }, index) => {
+    const prevUrl =
+      index === posts.length - 1 ? null : posts[index + 1].node.frontmatter.slug
+    const nextUrl = index === 0 ? null : posts[index - 1].node.frontmatter.slug
+
     createPage({
       path: `/blog/${node.frontmatter.slug}`,
       component: blogPostTemplate,
@@ -36,6 +44,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       // },
       context: {
         id: node.id,
+        prevUrl,
+        nextUrl,
         // data: node,
       },
     })
