@@ -32,9 +32,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const posts = result.data.allMdx.edges
 
   posts.forEach(({ node }, index) => {
-    const prevUrl =
-      index === posts.length - 1 ? null : posts[index + 1].node.frontmatter.slug
-    const nextUrl = index === 0 ? null : posts[index - 1].node.frontmatter.slug
+    const previous =
+      index === posts.length - 1 ? null : posts[index + 1].node.frontmatter
+    const next = index === 0 ? null : posts[index - 1].node.frontmatter
 
     createPage({
       path: `/blog/${node.frontmatter.slug}`,
@@ -44,8 +44,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       // },
       context: {
         id: node.id,
-        prevUrl,
-        nextUrl,
+        previous,
+        next,
         // data: node,
       },
     })

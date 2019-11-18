@@ -32,38 +32,45 @@ const StyledLink = styled(Link)`
 const BlogPost = ({ data, pageContext }) => {
   const { mdx } = data
 
-  const { prevUrl, nextUrl } = pageContext
+  const { previous, next } = pageContext
 
   const { tags } = mdx.frontmatter
 
   const chips = tags.map(tag => <Chip avatar={avatarPicker(tag)} label={tag} />)
 
-  const nextPostLink = nextUrl && (
-    <StyledLink to={`blog/${nextUrl}`}>
-      <Button
-        color="secondary"
-        endIcon={<ArrowForward />}
-        raised
-        size="large"
-        variant="contained"
-      >
-        Next
-      </Button>
-    </StyledLink>
+  const nextPostLink = next && (
+    <>
+      <p>{next.title}</p>
+
+      <StyledLink to={`blog/${next.slug}`}>
+        <Button
+          color="secondary"
+          endIcon={<ArrowForward />}
+          raised
+          size="large"
+          variant="contained"
+        >
+          Next
+        </Button>
+      </StyledLink>
+    </>
   )
 
-  const prevPostLink = prevUrl && (
-    <StyledLink to={`blog/${prevUrl}`}>
-      <Button
-        color="secondary"
-        endIcon={<ArrowBack />}
-        raised
-        size="large"
-        variant="contained"
-      >
-        Previous
-      </Button>
-    </StyledLink>
+  const prevPostLink = previous && (
+    <>
+      <p>{previous.title}</p>
+      <StyledLink to={`blog/${previous.slug}`}>
+        <Button
+          color="secondary"
+          endIcon={<ArrowBack />}
+          raised
+          size="large"
+          variant="contained"
+        >
+          Previous
+        </Button>
+      </StyledLink>
+    </>
   )
 
   return (
