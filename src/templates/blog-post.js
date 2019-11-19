@@ -29,6 +29,11 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 `
 
+const ContentWrapper = styled.div`
+  background-color: pink;
+  padding: 2rem;
+`
+
 const BlogPost = ({ data, pageContext }) => {
   const { mdx } = data
 
@@ -75,14 +80,16 @@ const BlogPost = ({ data, pageContext }) => {
 
   return (
     <Layout>
-      <h1>{mdx.frontmatter.title}</h1>
-      {console.log(mdx)}
-      {chips}
-      <MDXRenderer>{mdx.body}</MDXRenderer>
-      {/* {nextUrl && <Link to={`blog/${nextUrl}`}>Next</Link>} */}
-      {nextPostLink}
-      {/* {prevUrl && <Link to={`blog/${prevUrl}`}>Previous</Link>} */}
-      {prevPostLink}
+      <ContentWrapper>
+        <h1>{mdx.frontmatter.title}</h1>
+        {console.log(mdx)}
+        {chips}
+        <MDXRenderer>{mdx.body}</MDXRenderer>
+        {/* {nextUrl && <Link to={`blog/${nextUrl}`}>Next</Link>} */}
+        {nextPostLink}
+        {/* {prevUrl && <Link to={`blog/${prevUrl}`}>Previous</Link>} */}
+        {prevPostLink}
+      </ContentWrapper>
     </Layout>
   )
 }
