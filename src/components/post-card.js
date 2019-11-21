@@ -57,7 +57,7 @@ const PostCard = ({ title, date, timeToRead, description, tags, url }) => {
       : `Time to read: 1 minute`
 
   const chips = tags.map(tag => (
-    <StyledChip avatar={avatarPicker(tag)} label={tag} />
+    <StyledChip key={tag} avatar={avatarPicker(tag)} label={tag} />
   ))
 
   return (

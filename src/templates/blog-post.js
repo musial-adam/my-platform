@@ -30,7 +30,7 @@ const StyledLink = styled(Link)`
 `
 
 const ContentWrapper = styled.div`
-  background-color: pink;
+  background-color: lightgray;
   padding: 2rem;
 `
 
