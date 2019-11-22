@@ -82,7 +82,7 @@ const BlogPost = ({ data, pageContext }) => {
     <Layout>
       <ContentWrapper>
         <h1>{mdx.frontmatter.title}</h1>
-        {console.log(mdx)}
+        {/* {console.log(mdx)} */}
         {chips}
         <MDXRenderer>{mdx.body}</MDXRenderer>
         {/* {nextUrl && <Link to={`blog/${nextUrl}`}>Next</Link>} */}
