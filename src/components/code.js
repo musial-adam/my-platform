@@ -14,15 +14,12 @@ const StyledPre = styled.pre`
 `
 
 const CodeBlock = props => {
-  console.log(props)
-
   const { className } = props.children.props
 
   // Using RegEx to extract code block language from className
   // Example classNames: language-css, language-js, language-jsx, etc.
 
   const codeBlockLang = className.match(/language-(?<lang>.*)/)
-  console.log(codeBlockLang)
   const language = codeBlockLang.groups.lang ? codeBlockLang.groups.lang : ''
 
   return (
@@ -48,11 +45,12 @@ const CodeBlock = props => {
 }
 
 const InlineCode = styled.code`
-  background-color: pink;
-  color: navy;
-  padding: 0.1rem;
-  border-radius: 0.1rem;
+  background-color: #011627;
+  color: #d6deeb;
+  padding: 0.1rem 0.2rem;
+  border-radius: 0.2rem;
   font-family: 'Victor Mono';
+  font-weight: 800;
 `
 
 export { CodeBlock, InlineCode }
