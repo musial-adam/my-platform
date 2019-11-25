@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 // import theme from 'prism-react-renderer/themes/oceanicNext'
 import theme from 'prism-react-renderer/themes/nightOwl'
+// import theme from 'prism-react-renderer/themes/oneDarkPro/'
 
 const StyledPre = styled.pre`
   font-family: 'Victor Mono';
