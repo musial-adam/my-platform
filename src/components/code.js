@@ -12,6 +12,19 @@ const StyledPre = styled.pre`
   margin-left: -1rem;
   border-radius: 1rem;
   margin-right: -1rem;
+  overflow-x: auto;
+`
+
+const LineNo = styled.span`
+  /* color: pink; */
+  display: inline-block;
+  width: 1rem;
+  margin-right: 0.8rem;
+  text-align: right;
+  opacity: 0.3;
+  user-select: none;
+  /* padding: 0.1rem; */
+  /* border: 1px solid white; */
 `
 
 const CodeBlock = props => {
@@ -34,6 +47,7 @@ const CodeBlock = props => {
         <StyledPre className={className} style={style}>
           {tokens.map((line, i) => (
             <div {...getLineProps({ line, key: i })}>
+              <LineNo>{i + 1}</LineNo>
               {line.map((token, key) => (
                 <span {...getTokenProps({ token, key })} />
               ))}
