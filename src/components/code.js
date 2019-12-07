@@ -27,14 +27,32 @@ const LineNo = styled.span`
   /* border: 1px solid white; */
 `
 
+const FileName = styled.div`
+  margin-bottom: 10px;
+  border-bottom: 1px solid white;
+`
+
+const LanguageIndicator = styled.span`
+  background-color: lightskyblue;
+  color: black;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+`
+
 const CodeBlock = props => {
-  const { className } = props.children.props
+  const { className, metastring } = props.children.props
 
   // Using RegEx to extract code block language from className
   // Example classNames: language-css, language-js, language-jsx, etc.
 
   const codeBlockLang = className.match(/language-(?<lang>.*)/)
   const language = codeBlockLang.groups.lang ? codeBlockLang.groups.lang : ''
+
+  // code block - info about file name
+
+  console.log(metastring)
+  const filename = metastring || null
 
   return (
     <Highlight
@@ -45,9 +63,11 @@ const CodeBlock = props => {
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <StyledPre className={className} style={style}>
+          <LanguageIndicator>{language}</LanguageIndicator>
+          <FileName>{filename}</FileName>
           {tokens.map((line, i) => (
             <div {...getLineProps({ line, key: i })}>
-              <LineNo>{i + 1}</LineNo>
+              {/* <LineNo>{i + 1}</LineNo> */}
               {line.map((token, key) => (
                 <span {...getTokenProps({ token, key })} />
               ))}
