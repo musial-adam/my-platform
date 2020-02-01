@@ -29,6 +29,29 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 `
 
+const PostsNav = styled.div`
+  /* border: 2px solid red; */
+
+  display: flex;
+  /* justify-content: space-between; */
+`
+
+// EXPERIMENTAL CSS
+
+const PostLinkContainer = styled.div`
+  border: 2px solid black;
+  padding: 10px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+`
+
+const PostLink = styled.p`
+  margin: 0;
+`
+
+// END
+
 const ContentWrapper = styled.div`
   background-color: lightgray;
   padding: 2rem;
@@ -38,6 +61,8 @@ const BlogPost = ({ data, pageContext }) => {
   const { mdx } = data
 
   const { previous, next } = pageContext
+  console.log('previous', previous)
+  console.log('next', next)
 
   const { tags } = mdx.frontmatter
 
@@ -45,7 +70,9 @@ const BlogPost = ({ data, pageContext }) => {
 
   const nextPostLink = next && (
     <>
-      <p>{next.title}</p>
+      <p>{next.title} &#x02192;</p>
+      <p>{next.title} &#x027f9;</p>
+      <p>&nacute;</p>
 
       <StyledLink to={`blog/${next.slug}`}>
         <Button
@@ -63,11 +90,10 @@ const BlogPost = ({ data, pageContext }) => {
 
   const prevPostLink = previous && (
     <>
-      <p>{previous.title}</p>
       <StyledLink to={`blog/${previous.slug}`}>
         <Button
           color="secondary"
-          endIcon={<ArrowBack />}
+          startIcon={<ArrowBack />}
           raised
           size="large"
           variant="contained"
@@ -75,6 +101,7 @@ const BlogPost = ({ data, pageContext }) => {
           Previous
         </Button>
       </StyledLink>
+      <p>{previous.title}</p>
     </>
   )
 
@@ -85,10 +112,18 @@ const BlogPost = ({ data, pageContext }) => {
         {/* {console.log(mdx)} */}
         {chips}
         <MDXRenderer>{mdx.body}</MDXRenderer>
-        {/* {nextUrl && <Link to={`blog/${nextUrl}`}>Next</Link>} */}
-        {nextPostLink}
-        {/* {prevUrl && <Link to={`blog/${prevUrl}`}>Previous</Link>} */}
-        {prevPostLink}
+        <h1>Prev - Next</h1>
+        <PostsNav>
+          {prevPostLink}
+          {nextPostLink}
+        </PostsNav>
+        <h1>Next - Prev</h1>
+        <PostsNav>
+          <PostLinkContainer>
+            <PostLink>texten</PostLink>
+            <ArrowForward />
+          </PostLinkContainer>
+        </PostsNav>
       </ContentWrapper>
     </Layout>
   )

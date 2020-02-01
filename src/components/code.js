@@ -9,6 +9,7 @@ const StyledPre = styled.pre`
   font-family: 'Victor Mono';
   font-weight: 800;
   padding: 1rem;
+  padding-top: 0;
   margin-left: -1rem;
   border-radius: 1rem;
   margin-right: -1rem;
@@ -28,16 +29,30 @@ const LineNo = styled.span`
 `
 
 const FileName = styled.div`
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
+  padding: 1rem;
+  /* margin-left: -1rem; */
+  /* margin-right: -1rem; */
+  margin: 0rem -1rem;
+  /* margin-top: 0; */
+  /* border: 1px solid yellow; */
   border-bottom: 1px solid white;
+  opacity: 0.5;
+  user-select: none;
 `
 
 const LanguageIndicator = styled.span`
-  background-color: lightskyblue;
+  /* background-color: lightskyblue; */
   color: black;
-  padding: 5px;
-  border-radius: 5px;
-  margin-bottom: 10px;
+  display: inline-block;
+  padding: 0rem 0.4rem;
+  border-radius: 0 0 5px 5px;
+  margin-bottom: 1rem;
+
+  color: white;
+  border: 1px solid white;
+  border-top: none;
+  opacity: 0.5;
 `
 
 const CodeBlock = props => {
@@ -63,8 +78,8 @@ const CodeBlock = props => {
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <StyledPre className={className} style={style}>
+          {filename && <FileName>{filename}</FileName>}
           <LanguageIndicator>{language}</LanguageIndicator>
-          <FileName>{filename}</FileName>
           {tokens.map((line, i) => (
             <div {...getLineProps({ line, key: i })}>
               {/* <LineNo>{i + 1}</LineNo> */}

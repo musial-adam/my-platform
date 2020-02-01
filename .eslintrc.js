@@ -22,7 +22,9 @@ module.exports = {
     "react-app"
 	],
 	"rules": {
-		"react/jsx-filename-extension": 0,
+    "react/jsx-filename-extension": 0,
+    // DISABLED ONLY TEMP, TURN IT ON!!!
+    "react/prop-types": 0,
 		"prettier/prettier": [
 			"error",
 			{
