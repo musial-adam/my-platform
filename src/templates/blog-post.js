@@ -36,21 +36,33 @@ const StyledLink = styled(Link)`
 
   &:hover {
     background-color: orange;
+    border-radius: 0.3rem;
     cursor: pointer;
   }
 `
 
-const NextPostLink = styled.div`
-  margin-left: auto;
-`
-
-const PrevPostLink = styled.div``
-
-const PostsNav = styled.div`
-  border: 2px solid red;
+const PostsNav = styled.ul`
+  /* border: 2px solid red; */
 
   display: flex;
-  /* justify-content: space-between; */
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+
+  li:first-child {
+    a {
+      padding-right: 4px;
+    }
+    /* border: 2px solid green; */
+  }
+
+  li:nth-child(2) {
+    margin-left: auto;
+    /* border: 2px solid green; */
+    a {
+      padding-left: 4px;
+    }
+  }
 `
 
 const ContentWrapper = styled.div`
@@ -62,29 +74,33 @@ const BlogPost = ({ data, pageContext }) => {
   const { mdx } = data
 
   const { previous, next } = pageContext
-  console.log('previous', previous)
-  console.log('next', next)
+  // console.log('previous', previous)
+  // console.log('next', next)
 
   const { tags } = mdx.frontmatter
 
   const chips = tags.map(tag => <Chip avatar={avatarPicker(tag)} label={tag} />)
 
-  const nextPostLink = next && (
-    <NextPostLink>
+  const nextPostLink = next ? (
+    <li>
       <StyledLink to={`blog/${next.slug}`}>
         <p>{next.title}</p>
         <ArrowForward />
       </StyledLink>
-    </NextPostLink>
+    </li>
+  ) : (
+    <li />
   )
 
-  const prevPostLink = previous && (
-    <PrevPostLink>
+  const prevPostLink = previous ? (
+    <li>
       <StyledLink to={`blog/${previous.slug}`}>
         <ArrowBack />
         <p>{previous.title}</p>
       </StyledLink>
-    </PrevPostLink>
+    </li>
+  ) : (
+    <li />
   )
 
   return (
@@ -95,10 +111,12 @@ const BlogPost = ({ data, pageContext }) => {
         {chips}
         <MDXRenderer>{mdx.body}</MDXRenderer>
         <h1>Go to other posts</h1>
-        <PostsNav>
-          {prevPostLink}
-          {nextPostLink}
-        </PostsNav>
+        <nav>
+          <PostsNav>
+            {prevPostLink}
+            {nextPostLink}
+          </PostsNav>
+        </nav>
       </ContentWrapper>
     </Layout>
   )
