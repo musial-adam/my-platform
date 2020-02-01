@@ -27,30 +27,31 @@ const avatarPicker = tag => {
 
 const StyledLink = styled(Link)`
   text-decoration: none;
+  /* color: black; */
+  display: flex;
+
+  p {
+    margin: 2px 0 0 0;
+  }
+
+  &:hover {
+    background-color: orange;
+    cursor: pointer;
+  }
 `
 
+const NextPostLink = styled.div`
+  margin-left: auto;
+`
+
+const PrevPostLink = styled.div``
+
 const PostsNav = styled.div`
-  /* border: 2px solid red; */
+  border: 2px solid red;
 
   display: flex;
   /* justify-content: space-between; */
 `
-
-// EXPERIMENTAL CSS
-
-const PostLinkContainer = styled.div`
-  border: 2px solid black;
-  padding: 10px;
-  height: 100px;
-  display: flex;
-  align-items: center;
-`
-
-const PostLink = styled.p`
-  margin: 0;
-`
-
-// END
 
 const ContentWrapper = styled.div`
   background-color: lightgray;
@@ -69,40 +70,21 @@ const BlogPost = ({ data, pageContext }) => {
   const chips = tags.map(tag => <Chip avatar={avatarPicker(tag)} label={tag} />)
 
   const nextPostLink = next && (
-    <>
-      <p>{next.title} &#x02192;</p>
-      <p>{next.title} &#x027f9;</p>
-      <p>&nacute;</p>
-
+    <NextPostLink>
       <StyledLink to={`blog/${next.slug}`}>
-        <Button
-          color="secondary"
-          endIcon={<ArrowForward />}
-          raised
-          size="large"
-          variant="contained"
-        >
-          Next
-        </Button>
+        <p>{next.title}</p>
+        <ArrowForward />
       </StyledLink>
-    </>
+    </NextPostLink>
   )
 
   const prevPostLink = previous && (
-    <>
+    <PrevPostLink>
       <StyledLink to={`blog/${previous.slug}`}>
-        <Button
-          color="secondary"
-          startIcon={<ArrowBack />}
-          raised
-          size="large"
-          variant="contained"
-        >
-          Previous
-        </Button>
+        <ArrowBack />
+        <p>{previous.title}</p>
       </StyledLink>
-      <p>{previous.title}</p>
-    </>
+    </PrevPostLink>
   )
 
   return (
@@ -112,17 +94,10 @@ const BlogPost = ({ data, pageContext }) => {
         {/* {console.log(mdx)} */}
         {chips}
         <MDXRenderer>{mdx.body}</MDXRenderer>
-        <h1>Prev - Next</h1>
+        <h1>Go to other posts</h1>
         <PostsNav>
           {prevPostLink}
           {nextPostLink}
-        </PostsNav>
-        <h1>Next - Prev</h1>
-        <PostsNav>
-          <PostLinkContainer>
-            <PostLink>texten</PostLink>
-            <ArrowForward />
-          </PostLinkContainer>
         </PostsNav>
       </ContentWrapper>
     </Layout>
