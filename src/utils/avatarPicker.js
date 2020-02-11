@@ -6,7 +6,6 @@ import { Avatar } from '@material-ui/core'
 
 import GatsbyImg from '../images/gatsby-icon.png'
 import GitHubSVG from '../images/github-circle.svg'
-// import TwitterSVG from '../images/twitter-circle.svg'
 import ReactSVG from '../images/react.svg'
 
 const avatarPicker = tag => {

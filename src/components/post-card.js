@@ -7,13 +7,10 @@ import {
   Card,
   CardContent,
   CardHeader,
-  Chip,
   Typography,
 } from '@material-ui/core'
 
 import { ArrowForward } from '@material-ui/icons'
-
-import avatarPicker from '../utils/avatarPicker'
 
 const StyledButton = styled(Button)`
   /* background-color: orange; */
@@ -32,18 +29,10 @@ const StyledCardContent = styled(CardContent)`
   padding-top: 0;
 `
 
-const StyledChip = styled(Chip)`
-  margin-right: 5px;
-`
-
 const ButtonWrapper = styled.div`
   margin-top: 20px;
   display: flex;
   justify-content: center;
-`
-
-const TagsContainer = styled.div`
-  display: flex;
 `
 
 const StyledLink = styled(Link)`
@@ -55,10 +44,6 @@ const PostCard = ({ title, date, timeToRead, description, tags, url }) => {
     timeToRead > 1
       ? `Time to read: ${timeToRead} minutes`
       : `Time to read: 1 minute`
-
-  const chips = tags.map(tag => (
-    <StyledChip key={tag} avatar={avatarPicker(tag)} label={tag} />
-  ))
 
   return (
     <StyledCard>
@@ -73,7 +58,6 @@ const PostCard = ({ title, date, timeToRead, description, tags, url }) => {
           {description}
         </Typography>
 
-        <TagsContainer>{chips}</TagsContainer>
         <ButtonWrapper>
           <StyledLink to={`blog/${url}`}>
             <StyledButton
