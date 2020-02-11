@@ -27,40 +27,29 @@ const avatarPicker = tag => {
 
 const StyledLink = styled(Link)`
   text-decoration: none;
-  /* color: black; */
   display: flex;
-
-  p {
-    margin: 2px 0 0 0;
-  }
-
+  align-items: center;
+  /* border: 1px solid red; */
   &:hover {
-    background-color: orange;
-    border-radius: 0.3rem;
-    cursor: pointer;
+    text-decoration: underline;
   }
 `
 
 const PostsNav = styled.ul`
-  /* border: 2px solid red; */
-
   display: flex;
   justify-content: space-between;
   list-style: none;
   padding: 0;
 
-  li:first-child {
-    a {
-      padding-right: 4px;
-    }
-    /* border: 2px solid green; */
+  li {
+    flex-grow: 0;
+    max-width: 45%;
   }
 
   li:nth-child(2) {
-    margin-left: auto;
-    /* border: 2px solid green; */
+    /* margin-left: auto; */
     a {
-      padding-left: 4px;
+      text-align: right;
     }
   }
 `
@@ -84,7 +73,7 @@ const BlogPost = ({ data, pageContext }) => {
   const nextPostLink = next ? (
     <li>
       <StyledLink to={`blog/${next.slug}`}>
-        <p>{next.title}</p>
+        {next.title}
         <ArrowForward />
       </StyledLink>
     </li>
@@ -96,7 +85,7 @@ const BlogPost = ({ data, pageContext }) => {
     <li>
       <StyledLink to={`blog/${previous.slug}`}>
         <ArrowBack />
-        <p>{previous.title}</p>
+        {previous.title}
       </StyledLink>
     </li>
   ) : (
