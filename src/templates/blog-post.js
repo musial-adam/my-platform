@@ -48,7 +48,7 @@ const BlogPost = ({ data, pageContext }) => {
 
   const nextPostLink = next ? (
     <li>
-      <StyledLink to={`blog/${next.slug}`}>
+      <StyledLink to={`/blog/${next.slug}`}>
         {next.title}
         <ArrowForward />
       </StyledLink>
@@ -59,7 +59,7 @@ const BlogPost = ({ data, pageContext }) => {
 
   const prevPostLink = previous ? (
     <li>
-      <StyledLink to={`blog/${previous.slug}`}>
+      <StyledLink to={`/blog/${previous.slug}`}>
         <ArrowBack />
         {previous.title}
       </StyledLink>
