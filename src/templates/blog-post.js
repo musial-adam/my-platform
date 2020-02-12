@@ -37,8 +37,8 @@ const PostsNav = styled.ul`
 `
 
 const ContentWrapper = styled.div`
-  background-color: lightgray;
-  padding: 2rem;
+  /* background-color: lightgray; */
+  /* padding: 2rem; */
 `
 
 const BlogPost = ({ data, pageContext }) => {

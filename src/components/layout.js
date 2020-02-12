@@ -16,6 +16,8 @@ import {
   ThemeProvider,
 } from '@material-ui/core/styles'
 
+import styled from 'styled-components'
+
 import Header from './header'
 import Footer from './footer'
 import GlobalStyle from '../utils/globalStyles'
@@ -38,8 +40,23 @@ const theme = createMuiTheme({
     secondary: {
       main: '#ffc400',
     },
+    background: {
+      default: 'lightgrey',
+    },
   },
 })
+
+const ContentContainer = styled.div`
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+  /* padding: 2.625rem 1.3125rem; */
+  padding-left: 1.3125rem;
+  padding-right: 1.3125rem;
+  background-color: lightgray;
+
+  /* border: 5px solid orange; */
+`
 
 const Layout = ({ children }) => {
   return (
@@ -48,11 +65,12 @@ const Layout = ({ children }) => {
       <ThemeProvider theme={theme}>
         <StylesProvider injectFirst>
           <GlobalStyle />
-          <Container maxWidth="md">
+          {/* <Container maxWidth="md"> */}
+          <ContentContainer>
             <Header />
             <main>{children}</main>
             <Footer />
-          </Container>
+          </ContentContainer>
         </StylesProvider>
       </ThemeProvider>
     </>
