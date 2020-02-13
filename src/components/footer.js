@@ -3,15 +3,9 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
 
-import { AppBar, Box, Button, IconButton, Toolbar } from '@material-ui/core'
+import { AppBar, Toolbar } from '@material-ui/core'
 
-import {
-  GitHubIcon,
-  InstagramIcon,
-  TwitterIcon,
-  YouTubeIcon,
-  SocialMediaIconButtons,
-} from './icons'
+import { SocialMediaIconButtons } from './icons'
 
 const StyledLink = styled(Link)`
   margin-right: 10px;
@@ -37,18 +31,6 @@ const StyledFooter = styled.footer`
 const Footer = () => (
   <StyledFooter>
     <Toolbar variant="dense">
-      {/* <IconButton>
-            <GitHubIcon />
-          </IconButton>
-          <IconButton>
-            <TwitterIcon />
-          </IconButton>
-          <IconButton>
-            <InstagramIcon />
-          </IconButton>
-          <IconButton>
-            <YouTubeIcon />
-          </IconButton> */}
       <SocialMediaIconButtons />
     </Toolbar>
     © {new Date().getFullYear()} Adam Musiał. All rights reserved.
