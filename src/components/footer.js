@@ -23,20 +23,21 @@ const StyledAppBar = styled(AppBar)`
   justify-content: center;
 `
 
-const StyledFooterBox = styled.div`
+const StyledFooter = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   padding: 10px;
+  background-color: white;
+
+  margin-top: auto;
 `
 
 const Footer = () => (
-  <footer>
-    <AppBar color="default" position="static">
-      <StyledFooterBox>
-        <Toolbar variant="dense">
-          {/* <IconButton>
+  <StyledFooter>
+    <Toolbar variant="dense">
+      {/* <IconButton>
             <GitHubIcon />
           </IconButton>
           <IconButton>
@@ -48,12 +49,10 @@ const Footer = () => (
           <IconButton>
             <YouTubeIcon />
           </IconButton> */}
-          <SocialMediaIconButtons />
-        </Toolbar>
-        © {new Date().getFullYear()} Adam Musiał. All rights reserved.
-      </StyledFooterBox>
-    </AppBar>
-  </footer>
+      <SocialMediaIconButtons />
+    </Toolbar>
+    © {new Date().getFullYear()} Adam Musiał. All rights reserved.
+  </StyledFooter>
 )
 
 export default Footer

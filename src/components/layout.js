@@ -48,6 +48,7 @@ const theme = createMuiTheme({
 
 const ContentContainer = styled.div`
   max-width: 42rem;
+  min-height: 100vh;
   margin-left: auto;
   margin-right: auto;
   /* padding: 2.625rem 1.3125rem; */
@@ -55,7 +56,11 @@ const ContentContainer = styled.div`
   padding-right: 1.3125rem;
   background-color: lightgray;
 
-  /* border: 5px solid orange; */
+  border: 5px solid orange;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 `
 
 const Layout = ({ children }) => {
