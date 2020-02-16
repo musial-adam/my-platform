@@ -12,9 +12,9 @@ import {
 
 import { ArrowForward } from '@material-ui/icons'
 
-const StyledButton = styled(Button)`
-  /* background-color: orange; */
-`
+// const StyledButton = styled(Button)`
+//   background-color: orange;
+// `
 
 const StyledCard = styled(Card)`
   max-width: 90%;
@@ -59,16 +59,15 @@ const PostCard = ({ title, date, timeToRead, description, tags, url }) => {
         </Typography>
 
         <ButtonWrapper>
-          <StyledLink to={`blog/${url}`}>
-            <StyledButton
+          <StyledLink to={`/blog/${url}`}>
+            <Button
               color="secondary"
               endIcon={<ArrowForward />}
-              raised
               size="large"
               variant="contained"
             >
               Read post
-            </StyledButton>
+            </Button>
           </StyledLink>
         </ButtonWrapper>
       </StyledCardContent>

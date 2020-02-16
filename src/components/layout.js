@@ -47,16 +47,17 @@ const theme = createMuiTheme({
 })
 
 const LayoutContainer = styled.div`
-  max-width: 42rem;
+  max-width: 44.625rem;
   min-height: 100vh;
   margin-left: auto;
   margin-right: auto;
   /* padding: 2.625rem 1.3125rem; */
-  padding-left: 1.3125rem;
-  padding-right: 1.3125rem;
-  background-color: #edf2f7;
+  /* padding-left: 1.3125rem; */
+  /* padding-right: 1.3125rem; */
+  /* background-color: #edf2f7; */
+  background-color: #f7fafc;
 
-  border: 5px solid orange;
+  /* border: 5px solid orange; */
 
   display: flex;
   flex-direction: column;
@@ -64,9 +65,15 @@ const LayoutContainer = styled.div`
 `
 
 const ContentContainer = styled.div`
-  background-color: #f7fafc;
+  /* background-color: #f7fafc; */
   flex-grow: 1;
-  border: 5px solid green;
+  /* border: 5px solid green; */
+  width: 100%;
+  max-width: 42rem;
+  padding-left: 1.3125rem;
+  padding-right: 1.3125rem;
+  margin-left: auto;
+  margin-right: auto;
 `
 
 const Layout = ({ children }) => {
@@ -79,9 +86,9 @@ const Layout = ({ children }) => {
           {/* <Container maxWidth="md"> */}
           <LayoutContainer>
             <Header />
-            {/* <main> */}
-            <ContentContainer>{children}</ContentContainer>
-            {/* </main> */}
+            <main>
+              <ContentContainer>{children}</ContentContainer>
+            </main>
             <Footer />
           </LayoutContainer>
         </StylesProvider>
