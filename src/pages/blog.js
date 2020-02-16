@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import { Container } from '@material-ui/core'
 
-import Layout from '../components/layout'
+// import Layout from '../components/layout'
 import PostCard from '../components/post-card'
 
 // const StyledLink = styled(Link)`
@@ -38,10 +38,10 @@ const BlogPage = ({ data }) => {
   })
 
   return (
-    <Layout>
+    <>
       {/* <StyledContainer>{postsList}</StyledContainer> */}
       {postsList}
-    </Layout>
+    </>
   )
 }
 
