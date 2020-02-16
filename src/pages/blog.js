@@ -12,8 +12,9 @@ import PostCard from '../components/post-card'
 // `
 
 const StyledContainer = styled(Container)`
-  background-color: lightgray;
-  padding: 30px;
+  /* background-color: lightgray; */
+  /* padding: 30px; */
+  border: 10px solid pink;
 `
 
 const BlogPage = ({ data }) => {
@@ -38,7 +39,8 @@ const BlogPage = ({ data }) => {
 
   return (
     <Layout>
-      <StyledContainer>{postsList}</StyledContainer>
+      {/* <StyledContainer>{postsList}</StyledContainer> */}
+      {postsList}
     </Layout>
   )
 }

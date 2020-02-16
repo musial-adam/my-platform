@@ -31,6 +31,7 @@ const StyledHeader = styled.header`
 
 const StyledNav = styled.nav`
   display: flex;
+  justify-content: center;
   height: 100%;
 
   ul {
@@ -44,6 +45,9 @@ const StyledNav = styled.nav`
       /* padding: 0.3rem 1rem;
       border: 1px solid black;
       border-radius: 0.2rem; */
+      &:last-child {
+        margin-right: 0;
+      }
     }
   }
 `

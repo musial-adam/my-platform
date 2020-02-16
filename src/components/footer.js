@@ -23,7 +23,7 @@ const StyledFooter = styled.footer`
   align-items: center;
   flex-direction: column;
   padding: 10px;
-  background-color: white;
+  background-color: #7c4dff;
 
   margin-top: auto;
 `

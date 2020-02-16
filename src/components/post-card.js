@@ -17,7 +17,7 @@ const StyledButton = styled(Button)`
 `
 
 const StyledCard = styled(Card)`
-  max-width: 95%;
+  max-width: 90%;
   margin: 10px auto;
 `
 

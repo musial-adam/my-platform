@@ -41,12 +41,12 @@ const theme = createMuiTheme({
       main: '#ffc400',
     },
     background: {
-      default: 'lightgrey',
+      default: '#EDF2F7',
     },
   },
 })
 
-const ContentContainer = styled.div`
+const LayoutContainer = styled.div`
   max-width: 42rem;
   min-height: 100vh;
   margin-left: auto;
@@ -54,13 +54,19 @@ const ContentContainer = styled.div`
   /* padding: 2.625rem 1.3125rem; */
   padding-left: 1.3125rem;
   padding-right: 1.3125rem;
-  background-color: lightgray;
+  background-color: #edf2f7;
 
   border: 5px solid orange;
 
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+`
+
+const ContentContainer = styled.div`
+  background-color: #f7fafc;
+  flex-grow: 1;
+  border: 5px solid green;
 `
 
 const Layout = ({ children }) => {
@@ -71,11 +77,13 @@ const Layout = ({ children }) => {
         <StylesProvider injectFirst>
           <GlobalStyle />
           {/* <Container maxWidth="md"> */}
-          <ContentContainer>
+          <LayoutContainer>
             <Header />
-            <main>{children}</main>
+            {/* <main> */}
+            <ContentContainer>{children}</ContentContainer>
+            {/* </main> */}
             <Footer />
-          </ContentContainer>
+          </LayoutContainer>
         </StylesProvider>
       </ThemeProvider>
     </>
