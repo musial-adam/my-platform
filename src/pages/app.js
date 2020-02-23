@@ -7,12 +7,16 @@ import { Router } from '@reach/router'
 // import Default from '../components/Default'
 import PrivateRoute from '../components/PrivateRoute'
 
+import { login } from '../services/auth'
+
 const AppHome = () => <p>AppHome</p>
 const Settings = () => <p>Settings</p>
 const Profile = () => <p>Profile</p>
 const Login = () => <p>Login page, amigo</p>
 
 const App = () => {
+  login()
+
   return (
     <>
       <h1>Hi, from App page</h1>
