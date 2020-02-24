@@ -1,7 +1,6 @@
-import auth0js from 'auth0-js'
-// import dotenv from 'dotenv'
+import auth0 from 'auth0-js'
 
-// dotenv.config()
+import { navigate } from 'gatsby'
 
 export const isBrowser = typeof window !== 'undefined'
 
@@ -10,15 +9,15 @@ export const isBrowser = typeof window !== 'undefined'
 
 // const profile = false
 
-// const tokens = {
-//   accessToken: false,
-//   idToken: false,
-//   expiresAt: false,
-// }
+const tokens = {
+  accessToken: false,
+  idToken: false,
+  expiresAt: false,
+}
 
 // Only instantiate Auth0 if we’re in the browser.
-const auth0 = isBrowser
-  ? new auth0js.WebAuth({
+const auth = isBrowser
+  ? new auth0.WebAuth({
       domain: process.env.AUTH0_DOMAIN,
       clientID: process.env.AUTH0_CLIENTID,
       redirectUri: process.env.AUTH0_CALLBACK,
@@ -29,5 +28,36 @@ const auth0 = isBrowser
   : {}
 
 export const login = () => {
-  auth0.authorize()
+  if (!isBrowser) {
+    return
+  }
+  auth.authorize()
+}
+
+export const setSession = (callback = () => {}) => (err, authResult) => {
+  if (err) {
+    // throw new Error(JSON.stringify(err, null, 2))
+    // throw new Error(err)
+    // navigate('/')
+    // callback()
+    // return
+    if (err.error === 'login_required') {
+      console.log('LOGIN REQUIRED ERROR THROWN')
+      // login()
+    }
+  }
+
+  if (authResult && authResult.accessToken && authResult.idToken) {
+    tokens.accessToken = authResult.accessToken
+    tokens.idToken = authResult.idToken
+    callback()
+  }
+}
+
+export const checkSession = callback => {
+  auth.checkSession({}, setSession(callback))
+}
+
+export const handleAuthentication = () => {
+  auth.parseHash(setSession())
 }

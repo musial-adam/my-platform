@@ -15,11 +15,16 @@ const Profile = () => <p>Profile</p>
 const Login = () => <p>Login page, amigo</p>
 
 const App = () => {
-  login()
+  // login()
 
   return (
     <>
       <h1>Hi, from App page</h1>
+
+      <button type="button" onClick={login}>
+        Login
+      </button>
+
       <Router basepath="/app">
         <AppHome path="/" />
         <Login path="/login" />
