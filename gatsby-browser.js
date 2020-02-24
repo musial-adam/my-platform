@@ -32,6 +32,9 @@ class SessionCheck extends React.Component {
   }
 
   handleCheckSession = () => {
+    console.log(
+      '🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥'
+    )
     this.setState({ loading: false })
   }
 

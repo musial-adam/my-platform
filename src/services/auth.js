@@ -43,6 +43,7 @@ export const setSession = (callback = () => {}) => (err, authResult) => {
     // return
     if (err.error === 'login_required') {
       console.log('LOGIN REQUIRED ERROR THROWN')
+      callback()
       // login()
     }
   }
