@@ -69,19 +69,17 @@ const BlogPost = ({ data, pageContext }) => {
   )
 
   return (
-    <Layout>
-      <ContentWrapper>
-        <h1>{mdx.frontmatter.title}</h1>
-        <MDXRenderer>{mdx.body}</MDXRenderer>
-        <h1>Go to other posts</h1>
-        <nav>
-          <PostsNav>
-            {prevPostLink}
-            {nextPostLink}
-          </PostsNav>
-        </nav>
-      </ContentWrapper>
-    </Layout>
+    <ContentWrapper>
+      <h1>{mdx.frontmatter.title}</h1>
+      <MDXRenderer>{mdx.body}</MDXRenderer>
+      <h1>Go to other posts</h1>
+      <nav>
+        <PostsNav>
+          {prevPostLink}
+          {nextPostLink}
+        </PostsNav>
+      </nav>
+    </ContentWrapper>
   )
 }
 
