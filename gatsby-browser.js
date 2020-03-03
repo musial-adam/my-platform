@@ -27,7 +27,7 @@ class SessionCheck extends React.Component {
     loading: true,
   }
 
-  componentDidMount() {
+  componentWillMount() {
     checkSession(this.handleCheckSession)
   }
 

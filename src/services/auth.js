@@ -1,6 +1,6 @@
 import auth0 from 'auth0-js'
 
-import { navigate } from 'gatsby'
+// import { navigate } from 'gatsby'
 
 export const isBrowser = typeof window !== 'undefined'
 
@@ -8,12 +8,28 @@ export const isBrowser = typeof window !== 'undefined'
 // This prevents a flicker while the HTTP round-trip completes.
 
 // const profile = false
+let user = {}
 
 const tokens = {
   accessToken: false,
   idToken: false,
   expiresAt: false,
 }
+
+export const isAuthenticated = () => {
+  if (!isBrowser) {
+    return
+  }
+
+  console.log(window.localStorage.getItem('isLoggedIn'))
+  console.log(window.localStorage.getItem('isLoggedIn') === 'true')
+
+  return window.localStorage.getItem('isLoggedIn') === 'true'
+}
+
+// export const isAuthenticated = () => {
+//   return tokens.idToken !== false
+// }
 
 // Only instantiate Auth0 if we’re in the browser.
 const auth = isBrowser
@@ -34,6 +50,17 @@ export const login = () => {
   auth.authorize()
 }
 
+export const logout = () => {
+  window.localStorage.setItem('isLoggedIn', false)
+  tokens.accessToken = false
+  tokens.idToken = false
+  user = false
+
+  auth.logout({
+    returnTo: window.location.origin,
+  })
+}
+
 export const setSession = (callback = () => {}) => (err, authResult) => {
   if (err) {
     // throw new Error(JSON.stringify(err, null, 2))
@@ -43,20 +70,26 @@ export const setSession = (callback = () => {}) => (err, authResult) => {
     // return
     if (err.error === 'login_required') {
       console.log('LOGIN REQUIRED ERROR THROWN')
-      callback()
-      // login()
+      login()
+      // callback()
     }
   }
 
   if (authResult && authResult.accessToken && authResult.idToken) {
     tokens.accessToken = authResult.accessToken
     tokens.idToken = authResult.idToken
+    window.localStorage.setItem('isLoggedIn', true)
     callback()
   }
 }
 
 export const checkSession = callback => {
-  auth.checkSession({}, setSession(callback))
+  const isLoggedIn = window.localStorage.getItem('isLoggedIn')
+  if (isLoggedIn === 'false' || isLoggedIn === null) {
+    callback()
+  } else {
+    auth.checkSession({}, setSession(callback))
+  }
 }
 
 export const handleAuthentication = () => {

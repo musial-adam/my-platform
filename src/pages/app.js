@@ -7,7 +7,7 @@ import { Router } from '@reach/router'
 // import Default from '../components/Default'
 import PrivateRoute from '../components/PrivateRoute'
 
-import { login } from '../services/auth'
+import { isAuthenticated, login, logout } from '../services/auth'
 
 const AppHome = () => <p>AppHome</p>
 const Settings = () => <p>Settings</p>
@@ -15,7 +15,9 @@ const Profile = () => <p>Profile</p>
 const Login = () => <p>Login page, amigo</p>
 
 const App = () => {
-  login()
+  if (!isAuthenticated()) {
+    login()
+  }
 
   return (
     <>
@@ -24,6 +26,10 @@ const App = () => {
       {/* <button type="button" onClick={login}>
         Login
       </button> */}
+      <br />
+      <button type="button" onClick={logout}>
+        Logout
+      </button>
 
       <Router basepath="/app">
         <AppHome path="/" />
