@@ -15,32 +15,17 @@ const components = {
 // FOR AUTH0
 
 class SessionCheck extends React.Component {
-  // constructor(props) {
-  //   super(props)
-
-  //   this.state = {
-  //     loading: true,
-  //   }
-  // }
-
   state = {
     loading: true,
   }
 
-  componentWillMount() {
+  componentDidMount() {
     checkSession(this.handleCheckSession)
   }
 
   handleCheckSession = () => {
-    console.log(
-      '🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥'
-    )
     this.setState({ loading: false })
   }
-
-  // render() {
-  //   return this.state.loading === false ?? <>{this.props.children}</>
-  // }
 
   render() {
     return this.state.loading === false && <>{this.props.children}</>

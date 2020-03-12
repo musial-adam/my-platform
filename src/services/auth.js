@@ -13,23 +13,27 @@ let user = {}
 const tokens = {
   accessToken: false,
   idToken: false,
-  expiresAt: false,
-}
-
-export const isAuthenticated = () => {
-  if (!isBrowser) {
-    return
-  }
-
-  console.log(window.localStorage.getItem('isLoggedIn'))
-  console.log(window.localStorage.getItem('isLoggedIn') === 'true')
-
-  return window.localStorage.getItem('isLoggedIn') === 'true'
+  // expiresAt: false,
 }
 
 // export const isAuthenticated = () => {
-//   return tokens.idToken !== false
+//   if (!isBrowser) {
+//     return
+//   }
+
+//   console.log(window.localStorage.getItem('isLoggedIn'))
+//   console.log(window.localStorage.getItem('isLoggedIn') === 'true')
+
+//   return window.localStorage.getItem('isLoggedIn') === 'true'
 // }
+
+export const isAuthenticated = () => {
+  console.log('---------------------------------inside is Authenticated')
+  const checkResult = tokens.idToken !== false
+  console.log('tokens.idToken', tokens.idToken)
+  console.log('isAutheticatedCheckResult', checkResult)
+  return tokens.idToken !== false
+}
 
 // Only instantiate Auth0 if we’re in the browser.
 const auth = isBrowser
@@ -51,47 +55,60 @@ export const login = () => {
 }
 
 export const logout = () => {
-  window.localStorage.setItem('isLoggedIn', false)
   tokens.accessToken = false
   tokens.idToken = false
-  user = false
+  user = {}
+  window.localStorage.setItem('isLoggedIn', false)
 
   auth.logout({
     returnTo: window.location.origin,
   })
 }
 
-export const setSession = (callback = () => {}) => (err, authResult) => {
+const setSession = (callback = () => {}) => (err, authResult) => {
   if (err) {
-    // throw new Error(JSON.stringify(err, null, 2))
-    // throw new Error(err)
-    // navigate('/')
-    // callback()
-    // return
-    if (err.error === 'login_required') {
-      console.log('LOGIN REQUIRED ERROR THROWN')
-      login()
-      // callback()
-    }
+    // if (err.error === 'login_required') {
+    //   console.log('LOGIN REQUIRED ERROR THROWN')
+    //   // login()
+    //   callback()
+    //   return
+    // }
+    console.error(err)
+    callback()
+    return
   }
 
   if (authResult && authResult.accessToken && authResult.idToken) {
+    console.log('IS this SECTION of THE app EVEN reached?')
+
     tokens.accessToken = authResult.accessToken
     tokens.idToken = authResult.idToken
-    window.localStorage.setItem('isLoggedIn', true)
-    callback()
+
+    auth.client.userInfo(tokens.accessToken, (_err, userProfile) => {
+      user = userProfile
+      window.localStorage.setItem('isLoggedIn', true)
+      callback()
+    })
   }
 }
 
 export const checkSession = callback => {
   const isLoggedIn = window.localStorage.getItem('isLoggedIn')
+  console.log('Inside the ACTUAL CHECK SESSION FROM AUTH')
+  console.log('isLoggedIn', isLoggedIn)
+
   if (isLoggedIn === 'false' || isLoggedIn === null) {
+    console.log('Not logged in')
     callback()
-  } else {
-    auth.checkSession({}, setSession(callback))
+    return
   }
+  auth.checkSession({}, setSession(callback))
 }
 
 export const handleAuthentication = () => {
   auth.parseHash(setSession())
+}
+
+export const getUser = () => {
+  return user
 }
