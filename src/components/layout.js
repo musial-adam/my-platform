@@ -44,17 +44,29 @@ const theme = createMuiTheme({
       default: '#EDF2F7',
     },
   },
+  typography: {
+    fontFamily: [
+      'Nunito',
+      '-apple-system',
+      'BlinkMacSystemFont',
+      '"Segoe UI"',
+      'Roboto',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif',
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(','),
+  },
 })
 
 const LayoutContainer = styled.div`
-  max-width: 44.625rem;
+  /* max-width: 44.625rem; this was important for limiting layout box*/
   min-height: 100vh;
   margin-left: auto;
   margin-right: auto;
-  /* padding: 2.625rem 1.3125rem; */
-  /* padding-left: 1.3125rem; */
-  /* padding-right: 1.3125rem; */
-  /* background-color: #edf2f7; */
+
   background-color: #f7fafc;
 
   /* border: 5px solid orange; */
@@ -67,7 +79,7 @@ const LayoutContainer = styled.div`
 const ContentContainer = styled.div`
   /* background-color: #f7fafc; */
   flex-grow: 1;
-  /* border: 5px solid green; */
+  border: 5px solid green;
   width: 100%;
   max-width: 42rem;
   padding-left: 1.3125rem;
@@ -80,19 +92,19 @@ const Layout = ({ children }) => {
   return (
     <>
       <CssBaseline />
-      <ThemeProvider theme={theme}>
-        <StylesProvider injectFirst>
-          <GlobalStyle />
-          {/* <Container maxWidth="md"> */}
-          <LayoutContainer>
-            <Header />
-            <main>
-              <ContentContainer>{children}</ContentContainer>
-            </main>
-            <Footer />
-          </LayoutContainer>
-        </StylesProvider>
-      </ThemeProvider>
+      {/* <ThemeProvider theme={theme}> */}
+      <StylesProvider injectFirst>
+        <GlobalStyle />
+        {/* <Container maxWidth="md"> */}
+        <LayoutContainer>
+          <Header />
+          <main>
+            <ContentContainer>{children}</ContentContainer>
+          </main>
+          <Footer />
+        </LayoutContainer>
+      </StylesProvider>
+      {/* </ThemeProvider> */}
     </>
   )
 }

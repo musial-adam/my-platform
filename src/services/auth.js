@@ -27,11 +27,17 @@ const tokens = {
 //   return window.localStorage.getItem('isLoggedIn') === 'true'
 // }
 
+const testString = 'LOLOLOLOL'
+
 export const isAuthenticated = () => {
-  console.log('---------------------------------inside is Authenticated')
+  console.log('begin---------------------------------inside is Authenticated')
   const checkResult = tokens.idToken !== false
   console.log('tokens.idToken', tokens.idToken)
   console.log('isAutheticatedCheckResult', checkResult)
+  console.log('testString', testString)
+
+  console.log('end-----------------------------------inside is Authenticated')
+
   return tokens.idToken !== false
 }
 
@@ -66,6 +72,8 @@ export const logout = () => {
 }
 
 const setSession = (callback = () => {}) => (err, authResult) => {
+  console.log('setSESSION')
+
   if (err) {
     // if (err.error === 'login_required') {
     //   console.log('LOGIN REQUIRED ERROR THROWN')

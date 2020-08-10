@@ -3,7 +3,9 @@ import { MDXProvider } from '@mdx-js/react'
 import { CodeBlock, InlineCode } from './src/components/code'
 import Layout from './src/components/layout'
 
-import { checkSession } from './src/services/auth'
+import 'typeface-nunito'
+
+// import { checkSession } from './src/services/auth'
 
 // FOR MDX
 
@@ -14,28 +16,26 @@ const components = {
 
 // FOR AUTH0
 
-class SessionCheck extends React.Component {
-  state = {
-    loading: true,
-  }
+// class SessionCheck extends React.Component {
+//   state = {
+//     loading: true,
+//   }
 
-  componentDidMount() {
-    checkSession(this.handleCheckSession)
-  }
+//   componentDidMount() {
+//     checkSession(this.handleCheckSession)
+//   }
 
-  handleCheckSession = () => {
-    this.setState({ loading: false })
-  }
+//   handleCheckSession = () => {
+//     this.setState({ loading: false })
+//   }
 
-  render() {
-    return this.state.loading === false && <>{this.props.children}</>
-  }
-}
+//   render() {
+//     return this.state.loading === false && <>{this.props.children}</>
+//   }
+// }
 
 export const wrapRootElement = ({ element }) => (
-  <SessionCheck>
-    <MDXProvider components={components}>{element}</MDXProvider>
-  </SessionCheck>
+  <MDXProvider components={components}>{element}</MDXProvider>
 )
 
 export const wrapPageElement = ({ element, props }) => {

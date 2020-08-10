@@ -89,11 +89,11 @@ const Header = () => (
             About
           </StyledLink>
         </li>
-        <li>
+        {/* <li>
           <StyledLink to="/app" activeStyle={activeStyleLink} partiallyActive>
             App
           </StyledLink>
-        </li>
+        </li> */}
       </ul>
     </StyledNav>
   </StyledHeader>
