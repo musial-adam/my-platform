@@ -7,6 +7,10 @@ import { AppBar, Toolbar } from '@material-ui/core'
 
 import { SocialMediaIconButtons } from './icons'
 
+import SVGIcon from './svg-icon'
+import youtube from '../assets/icons/test.svg'
+import twitter from '../assets/icons/twitter.svg'
+
 const StyledLink = styled(Link)`
   margin-right: 10px;
   text-decoration: none;
@@ -37,6 +41,10 @@ const StyledFooter = styled.footer`
     flex: 0 1 300px;
     border: 2px solid orange;
   } */
+
+  svg {
+    border: 1px solid orange;
+  }
 `
 
 const StyledNav = styled.nav`
@@ -93,12 +101,10 @@ const Footer = () => (
         <li>Item 4</li>
       </ul>
     </StyledNav>
+    {/* <SVGIcon size="50" fill="#AEEFFE" /> */}
+    <SVGIcon path={youtube} id="youtube" />
+    <SVGIcon path={twitter} id="twitter" fill="black" />
     {/* <Box>© {new Date().getFullYear()} Adam Musiał. All rights reserved.</Box> */}
-    {/* <Box /> */}
-    {/* <FormPlaceholder /> */}
-    {/* <Box /> */}
-    {/* <Box /> */}
-    {/* <Box2 /> */}
   </StyledFooter>
 )
 
