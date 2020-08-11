@@ -102,8 +102,9 @@ const Footer = () => (
       </ul>
     </StyledNav>
     {/* <SVGIcon size="50" fill="#AEEFFE" /> */}
-    <SVGIcon path={youtube} id="youtube" />
-    <SVGIcon path={twitter} id="twitter" fill="black" />
+    {/* <SVGIcon path={youtube} id="youtube" /> */}
+    <SVGIcon path={twitter} id="twitter" fill="orange" />
+    <SVGIcon path={twitter} id="twitter" />
     {/* <Box>© {new Date().getFullYear()} Adam Musiał. All rights reserved.</Box> */}
   </StyledFooter>
 )
