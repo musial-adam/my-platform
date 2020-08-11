@@ -28,21 +28,16 @@ const SVGIcon = ({ path, id, size, fill }) => {
   )
 }
 
-SVGIcon.defaultProps = {
-  size: '50',
-  // fill: 'black',
-  fill: '#AEEFFE',
+SVGIcon.propTypes = {
+  path: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  size: PropTypes.number,
+  fill: PropTypes.string,
 }
 
-// SVGIcon.propTypes = {
-//   icon: PropTypes.string.isRequired,
-//   className: PropTypes.string,
-//   fill: PropTypes.string,
-// }
-
-// SVGIcon.defaultProps = {
-//   className: '',
-//   fill: '',
-// }
+SVGIcon.defaultProps = {
+  size: 50,
+  fill: '#AEEFFE',
+}
 
 export default SVGIcon

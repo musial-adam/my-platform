@@ -8,8 +8,9 @@ import { AppBar, Toolbar } from '@material-ui/core'
 import { SocialMediaIconButtons } from './icons'
 
 import SVGIcon from './svg-icon'
-import youtube from '../assets/icons/test.svg'
+// import youtube from '../assets/icons/test.svg'
 import twitter from '../assets/icons/twitter.svg'
+import github from '../assets/icons/github.svg'
 
 const StyledLink = styled(Link)`
   margin-right: 10px;
@@ -41,10 +42,6 @@ const StyledFooter = styled.footer`
     flex: 0 1 300px;
     border: 2px solid orange;
   } */
-
-  svg {
-    border: 1px solid orange;
-  }
 `
 
 const StyledNav = styled.nav`
@@ -88,7 +85,7 @@ const Copyright = styled.p`
   color: var(--sunshade600);
   font-family: 'Nunito';
   font-size: 18px;
-  font-weighsst: normal;
+  font-weight: normal;
 `
 
 const Footer = () => (
@@ -101,10 +98,9 @@ const Footer = () => (
         <li>Item 4</li>
       </ul>
     </StyledNav>
-    {/* <SVGIcon size="50" fill="#AEEFFE" /> */}
-    {/* <SVGIcon path={youtube} id="youtube" /> */}
     <SVGIcon path={twitter} id="twitter" fill="orange" />
     <SVGIcon path={twitter} id="twitter" />
+    <SVGIcon path={github} id="github" />
     {/* <Box>© {new Date().getFullYear()} Adam Musiał. All rights reserved.</Box> */}
   </StyledFooter>
 )
