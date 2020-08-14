@@ -23,30 +23,23 @@ const StyledLink = styled(Link)`
   &::before {
     content: '';
     display: block;
-    width: 110%;
+    width: calc(100% + 20px);
     height: 10px;
     background-color: var(--amaranth500);
     position: absolute;
     top: 30px;
     left: 0;
-    margin-left: -5%;
+    margin-left: -10px;
     z-index: -1;
     transform: scaleX(0);
     transition: transform 0.2s ease;
   }
 
   &.active {
-    /* color: red; */
     &::before {
       transform: scaleX(1);
     }
   }
-
-  /* &:hover,
-  :active,
-  :visited {
-    color: black;
-  } */
 `
 
 const StyledNav = styled.nav`
@@ -61,7 +54,7 @@ const StyledNav = styled.nav`
 
     li {
       display: inline-block;
-      margin-right: 1rem;
+      margin-right: 2rem;
       &:last-child {
         margin-right: 0;
       }
@@ -69,15 +62,10 @@ const StyledNav = styled.nav`
   }
 `
 
-const activeStyleLink = {
-  backgroundColor: '#ffc400',
-}
-
 const HeaderNav = () => (
   <StyledNav>
     <ul>
       <li>
-        {/* <StyledLink to="/" activeStyle={activeStyleLink}> */}
         <StyledLink to="/" activeClassName="active">
           Home
         </StyledLink>
