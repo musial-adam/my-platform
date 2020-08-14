@@ -3,14 +3,8 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
 
-import { AppBar, Toolbar } from '@material-ui/core'
-
-import { SocialMediaIconButtons } from './icons'
-
-import SVGIcon from './svg-icon'
-// import youtube from '../assets/icons/test.svg'
-import twitter from '../assets/icons/twitter.svg'
-import github from '../assets/icons/github.svg'
+import FooterNav from './navigation/footer-nav'
+import SocialMediaIcons from './social-media'
 
 const StyledLink = styled(Link)`
   margin-right: 10px;
@@ -21,10 +15,10 @@ const StyledFooter = styled.footer`
   /* box-sizing: border-box; */
 
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   /* flex-direction: column; */
-  padding: 10px;
+  /* padding: 10px; */
 
   margin-top: auto;
 
@@ -36,16 +30,12 @@ const StyledFooter = styled.footer`
   /* normal | multiply | screen | overlay | darken | lighten | color-dodge | color-burn | hard-light | soft-light | difference | exclusion | hue | saturation | color | luminosity */
   background-repeat: repeat;
   background-size: auto, 8px 8px;
-
-  /* div,
-  nav {
-    flex: 0 1 300px;
-    border: 2px solid orange;
-  } */
 `
 
 const StyledNav = styled.nav`
   display: block;
+  width: 200px;
+  border: 1px solid yellow;
   ul {
     list-style: none;
     padding: 0;
@@ -61,24 +51,13 @@ const StyledNav = styled.nav`
   }
 `
 
-const FormPlaceholder = styled.div`
-  width: 200px;
-  height: 200px;
-  background-color: var(--malibu500);
-`
+const MiddleBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: flex-end;
 
-const Box = styled.div`
-  background-color: var(--amaranth500);
-  width: 400px;
-  height: 300px;
-  border: 3px solid orange;
-`
-
-const Box2 = styled.div`
-  background-color: var(--amaranth100);
-  width: 200px;
-  height: 300px;
-  border: 3px solid red;
+  /* border: 2px solid orange; */
 `
 
 const Copyright = styled.p`
@@ -86,22 +65,37 @@ const Copyright = styled.p`
   font-family: 'Nunito';
   font-size: 18px;
   font-weight: normal;
+  /* line-height: 1; */
+`
+
+const FormPlaceholder = styled.div`
+  border-radius: 10px;
+
+  background-color: var(--malibu600);
+
+  width: 200px;
+  height: 250px;
 `
 
 const Footer = () => (
   <StyledFooter>
-    <StyledNav>
+    {/* <StyledNav>
       <ul>
         <li>Item 1</li>
         <li>Item 2</li>
         <li>Item 3</li>
         <li>Item 4</li>
+        <li>Item 4</li>
       </ul>
-    </StyledNav>
-    <SVGIcon path={twitter} id="twitter" fill="orange" />
-    <SVGIcon path={twitter} id="twitter" />
-    <SVGIcon path={github} id="github" />
-    {/* <Box>© {new Date().getFullYear()} Adam Musiał. All rights reserved.</Box> */}
+    </StyledNav> */}
+    <FooterNav />
+    <MiddleBox>
+      <SocialMediaIcons />
+      <Copyright>
+        © {new Date().getFullYear()} Adam Musiał. All rights reserved.
+      </Copyright>
+    </MiddleBox>
+    <FormPlaceholder />
   </StyledFooter>
 )
 
