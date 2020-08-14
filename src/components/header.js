@@ -2,6 +2,8 @@ import { Link } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
 
+import HeaderNav from './navigation/header-nav'
+
 const StyledLink = styled(Link)`
   text-decoration: none;
   text-transform: uppercase;
@@ -24,9 +26,9 @@ const StyledLink = styled(Link)`
 `
 
 const StyledHeader = styled.header`
-  background-color: #7c4dff;
+  /* background-color: #7c4dff; */
   padding: 0.3rem 0.8rem;
-  height: 3rem;
+  height: 5rem;
 `
 
 const StyledNav = styled.nav`
@@ -58,7 +60,8 @@ const activeStyleLink = {
 
 const Header = () => (
   <StyledHeader>
-    <StyledNav>
+    <HeaderNav />
+    {/* <StyledNav>
       <ul>
         <li>
           <StyledLink to="/" activeStyle={activeStyleLink}>
@@ -89,13 +92,8 @@ const Header = () => (
             About
           </StyledLink>
         </li>
-        {/* <li>
-          <StyledLink to="/app" activeStyle={activeStyleLink} partiallyActive>
-            App
-          </StyledLink>
-        </li> */}
       </ul>
-    </StyledNav>
+    </StyledNav> */}
   </StyledHeader>
 )
 

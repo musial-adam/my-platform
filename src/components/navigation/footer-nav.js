@@ -10,16 +10,6 @@ const StyledLink = styled(Link)`
   text-transform: uppercase;
 
   position: relative;
-  /* transition: font-weight 0.5s ease-in-out; */
-
-  /* &:hover {
-    background-color: var(--sunshade600);
-  } */
-
-  /* &:hover,
-  :active,
-  :visited {
-  } */
 
   &:hover {
     &::before {
@@ -37,9 +27,6 @@ const StyledLink = styled(Link)`
     position: absolute;
     left: -20px;
     top: 8px;
-    /* margin-left: -10px;
-    /* margin-right: 10px; */
-    /* margin-bottom: 2px; */
     opacity: 0;
     transition: opacity 0.2s ease-in-out;
   }
@@ -48,7 +35,6 @@ const StyledLink = styled(Link)`
 const StyledNav = styled.nav`
   display: block;
   width: 200px;
-  /* border: 1px solid yellow; */
 
   ul {
     list-style: none;
@@ -66,7 +52,6 @@ const StyledNav = styled.nav`
 `
 
 const activeStyleLink = {
-  // backgroundColor: 'var(--sunshade600)',
   fontWeight: 'bold',
 }
 
