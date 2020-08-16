@@ -18,6 +18,7 @@ const StyledFooter = styled.footer`
   /* normal | multiply | screen | overlay | darken | lighten | color-dodge | color-burn | hard-light | soft-light | difference | exclusion | hue | saturation | color | luminosity */
   background-repeat: repeat;
   background-size: auto, 8px 8px;
+  /* background-size: auto, 16px 16px; */
 `
 
 const MiddleBox = styled.div`

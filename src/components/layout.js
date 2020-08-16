@@ -5,61 +5,21 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-// import { useStaticQuery, graphql } from 'gatsby'
+import styled from 'styled-components'
 
-// import styled from 'styled-components'
-
-import { CssBaseline, Container } from '@material-ui/core'
+import { CssBaseline } from '@material-ui/core'
 import {
   createMuiTheme,
   StylesProvider,
   ThemeProvider,
 } from '@material-ui/core/styles'
 
-import styled from 'styled-components'
-
 import Header from './header'
 import Footer from './footer'
 import GlobalStyle from '../utils/globalStyles'
 // import './layout.css'
 
-// const theme = createMuiTheme({
-//   palette: {
-//     primary: {
-//       main: '#00e676',
-//     },
-//     secondary: '#7c4dff',
-//   },
-// })
-
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: '#7c4dff',
-    },
-    secondary: {
-      main: '#ffc400',
-    },
-    background: {
-      default: '#EDF2F7',
-    },
-  },
-  typography: {
-    fontFamily: [
-      'Nunito',
-      '-apple-system',
-      'BlinkMacSystemFont',
-      '"Segoe UI"',
-      'Roboto',
-      '"Helvetica Neue"',
-      'Arial',
-      'sans-serif',
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"',
-    ].join(','),
-  },
-})
+import bgpattern from '../assets/patterns/sidebg.svg'
 
 const LayoutContainer = styled.div`
   /* max-width: 44.625rem; this was important for limiting layout box*/
@@ -67,7 +27,14 @@ const LayoutContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
 
-  background-color: #f7fafc;
+  background: url(${bgpattern});
+  /* background: url(../../bg/cardbg.svg); */
+
+  background-repeat: repeat;
+  background-size: 8px 8px;
+  /* background-size: auto, 16px 16px; */
+  /* background-repeat: repeat; */
+  /* background-size: 8px 8px; */
 
   /* border: 5px solid orange; */
 
@@ -77,7 +44,7 @@ const LayoutContainer = styled.div`
 `
 
 const ContentContainer = styled.div`
-  /* background-color: #f7fafc; */
+  background-color: #f7fafc;
   flex-grow: 1;
   border: 5px solid green;
   width: 100%;
