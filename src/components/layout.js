@@ -1,18 +1,6 @@
-// !! I am using Styles Provider here to make sure my Styled Components always override Material UI
-// !! URL to docs: https://material-ui.com/guides/interoperability/#styled-components
-
-// TODO: Footer is faulty as the moment as it injects <header></header>
-
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-
-import { CssBaseline } from '@material-ui/core'
-import {
-  createMuiTheme,
-  StylesProvider,
-  ThemeProvider,
-} from '@material-ui/core/styles'
 
 import Header from './header'
 import Footer from './footer'
@@ -32,9 +20,6 @@ const LayoutContainer = styled.div`
 
   background-repeat: repeat;
   background-size: 8px 8px;
-  /* background-size: auto, 16px 16px; */
-  /* background-repeat: repeat; */
-  /* background-size: 8px 8px; */
 
   /* border: 5px solid orange; */
 
@@ -44,34 +29,43 @@ const LayoutContainer = styled.div`
 `
 
 const ContentContainer = styled.div`
-  background-color: #f7fafc;
+  /* background-color: #f7fafc; */
+  background-color: white;
   flex-grow: 1;
-  border: 5px solid green;
+  /* height: 100%; */
+  /* border: 1px solid green; */
   width: 100%;
   max-width: 42rem;
+  /* padding-top: 20px; */
+  /* padding-top: 20px; */
+  /* padding-bottom: 20px; */
   padding-left: 1.3125rem;
   padding-right: 1.3125rem;
   margin-left: auto;
   margin-right: auto;
+
+  /* h1 {
+    margin: 0;
+  } */
+`
+
+const StyledMain = styled.main`
+  flex-grow: 1;
+  height: 100%;
+  /* line-height: 0; */
 `
 
 const Layout = ({ children }) => {
   return (
     <>
-      <CssBaseline />
-      {/* <ThemeProvider theme={theme}> */}
-      <StylesProvider injectFirst>
-        <GlobalStyle />
-        {/* <Container maxWidth="md"> */}
-        <LayoutContainer>
-          <Header />
-          <main>
-            <ContentContainer>{children}</ContentContainer>
-          </main>
-          <Footer />
-        </LayoutContainer>
-      </StylesProvider>
-      {/* </ThemeProvider> */}
+      <GlobalStyle />
+      <LayoutContainer>
+        <Header />
+        <StyledMain>
+          <ContentContainer>{children}</ContentContainer>
+        </StyledMain>
+        <Footer />
+      </LayoutContainer>
     </>
   )
 }
