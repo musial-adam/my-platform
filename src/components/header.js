@@ -8,7 +8,9 @@ import HeaderNav from './navigation/header-nav'
 const StyledHeader = styled.header`
   height: 100px;
   background: var(--headerLinearGradient);
-  /* margin: 0; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   /* background: url(${bg}); */
   /* background-repeat: repeat; */
 `

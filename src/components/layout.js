@@ -15,11 +15,11 @@ const LayoutContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
 
-  background: url(${bgpattern});
-  /* background: url(../../bg/cardbg.svg); */
-
+  /* background: url(${bgpattern});
   background-repeat: repeat;
-  background-size: 8px 8px;
+  background-size: 8px 8px; */
+  /* background-color: #f7fafc; */
+  background-color: var(--malibu100);
 
   /* border: 5px solid orange; */
 
@@ -29,18 +29,18 @@ const LayoutContainer = styled.div`
 `
 
 const ContentContainer = styled.div`
-  /* background-color: #f7fafc; */
-  background-color: white;
+  background-color: #f7fafc;
   flex-grow: 1;
   /* height: 100%; */
   /* border: 1px solid green; */
-  width: 100%;
-  max-width: 42rem;
+  /* width: 100%; */
+  width: 800px;
   /* padding-top: 20px; */
   /* padding-top: 20px; */
   /* padding-bottom: 20px; */
-  padding-left: 1.3125rem;
-  padding-right: 1.3125rem;
+  /* padding-left: 10px;
+  padding-right: 10px; */
+  padding: 20px;
   margin-left: auto;
   margin-right: auto;
 
@@ -50,9 +50,13 @@ const ContentContainer = styled.div`
 `
 
 const StyledMain = styled.main`
+  display: block;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
   flex-grow: 1;
   height: 100%;
-  /* line-height: 0; */
+  border: 3px dashed orange;
 `
 
 const Layout = ({ children }) => {
@@ -61,9 +65,9 @@ const Layout = ({ children }) => {
       <GlobalStyle />
       <LayoutContainer>
         <Header />
-        <StyledMain>
-          <ContentContainer>{children}</ContentContainer>
-        </StyledMain>
+        {/* <StyledMain> */}
+        <ContentContainer>{children}</ContentContainer>
+        {/* </StyledMain> */}
         <Footer />
       </LayoutContainer>
     </>

@@ -24,6 +24,7 @@ const StyledLink = styled(Link)`
     content: '';
     display: block;
     width: calc(100% + 20px);
+    /* width: 100%; */
     height: 10px;
     background-color: var(--amaranth500);
     position: absolute;
@@ -43,13 +44,17 @@ const StyledLink = styled(Link)`
 `
 
 const StyledNav = styled.nav`
-  display: flex;
-  justify-content: center;
-  height: 100%;
+  width: 760px;
+  /* margin: 0 auto; */
+  /* box-sizing: border-box; */
+
+  /* border: 1px dashed darkgrey; */
 
   ul {
+    display: flex;
+    justify-content: space-between;
     list-style: none;
-    margin: auto 0;
+    margin: 0;
     padding: 0;
 
     li {

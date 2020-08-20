@@ -6,10 +6,15 @@ const GlobalStyle = createGlobalStyle`
      with enough content to scroll */
 
   html {
+    box-sizing: border-box;
     overflow-y: scroll;
     font-family: "Nunito";
     
   }
+  
+  *, *:before, *:after {
+  box-sizing: inherit;
+}
   
   :root {
   
