@@ -1,6 +1,6 @@
 import React from 'react'
 import { MDXProvider } from '@mdx-js/react'
-import { CodeBlock, InlineCode } from './src/components/code'
+// import { CodeBlock, InlineCode } from './src/components/code'
 import Layout from './src/components/layout'
 
 import 'typeface-nunito'
@@ -9,10 +9,12 @@ import 'typeface-nunito'
 
 // FOR MDX
 
-const components = {
-  pre: CodeBlock,
-  inlineCode: InlineCode,
-}
+import components from './src/components/mdxComponents'
+
+// const components = {
+//   pre: CodeBlock,
+//   inlineCode: InlineCode,
+// }
 
 // FOR AUTH0
 
