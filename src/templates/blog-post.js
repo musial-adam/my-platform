@@ -5,8 +5,7 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { ArrowBack, ArrowForward } from '@material-ui/icons'
 
 import styled from 'styled-components'
-
-import Layout from '../components/layout'
+import Heading from '../components/mdxComponents/headings'
 
 const StyledLink = styled(Link)`
   text-decoration: none;
@@ -39,6 +38,14 @@ const PostsNav = styled.ul`
 const ContentWrapper = styled.div`
   /* background-color: lightgray; */
   /* padding: 2rem; */
+
+  h1 {
+    font-size: 4rem;
+  }
+`
+
+const TestH1 = styled.h1`
+  font-size: 4rem;
 `
 
 const BlogPost = ({ data, pageContext }) => {

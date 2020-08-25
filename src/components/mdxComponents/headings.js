@@ -11,9 +11,25 @@ const headingSizes = {
 }
 
 const StyledHeading = styled.h1`
-  color: var(--catalinaBlue700);
+  /* color: var(--catalinaBlue700); */
   font-size: ${headingSizes.h1}rem;
   font-size: ${({ as }) => as && `${headingSizes[as]}rem`};
+  font-weight: 800;
+  /* color: transparent; */
+
+  background: var(--headerLinearGradient);
+  background: linear-gradient(
+    90deg,
+    var(--amaranth500),
+    var(--catalinaBlue600)
+  );
+
+  /* display: inline-block; */
+  /* background-clip: text; */
+
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 `
 
 const Heading = props => (
