@@ -1,39 +1,61 @@
 import React from 'react'
 import styled from 'styled-components'
 
+// TODO - below headings sizes are random choices, create system for headings
+
 const headingSizes = {
-  h1: 4,
-  h2: 3,
-  h3: 2.5,
+  h1: 5,
+  h2: 4,
+  h3: 3,
   h4: 2,
-  h5: 1.8,
+  h5: 1.5,
   h6: 1.2,
 }
 
 const StyledHeading = styled.h1`
-  /* color: var(--catalinaBlue700); */
   font-size: ${headingSizes.h1}rem;
   font-size: ${({ as }) => as && `${headingSizes[as]}rem`};
   font-weight: 800;
-  /* color: transparent; */
 
-  background: var(--headerLinearGradient);
-  background: linear-gradient(
-    90deg,
-    var(--amaranth500),
-    var(--catalinaBlue600)
-  );
+  span.gradient-text {
+    background: linear-gradient(
+      45deg,
+      var(--amaranth500),
+      var(--catalinaBlue600)
+    );
 
-  /* display: inline-block; */
-  /* background-clip: text; */
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
 
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    /* Yellow square is using ems so it scales up/down with the font size */
+    width: 0.75em;
+    height: 0.75em;
+    content: '';
+    /* color: transparent;
+    -webkit-text-fill-color: transparent; */
+    pointer-events: none;
+    background: var(--sunshade600);
+    /* -webkit-background-clip: text; */
+    position: absolute;
+    z-index: -1;
+    --translate: -0.5rem;
+    --rotate: 0deg;
+    transform: translateX(var(--translate)) translateY(var(--translate))
+      rotate(var(--rotate));
+  }
 `
 
 const Heading = props => (
-  <StyledHeading {...props}>{props.children}</StyledHeading>
+  <StyledHeading {...props}>
+    <span className="gradient-text">{props.children}</span>
+  </StyledHeading>
 )
 
 export default Heading
