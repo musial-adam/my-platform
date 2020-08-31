@@ -9,12 +9,13 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     overflow-y: scroll;
     font-family: "Nunito";
+    font-size: 62.5%;
     
   }
   
   *, *:before, *:after {
-  box-sizing: inherit;
-}
+    box-sizing: inherit;
+  }
   
   :root {
   
@@ -124,6 +125,45 @@ const GlobalStyle = createGlobalStyle`
     
     --cardBoxShadow: 0px 3px 3px rgba(0, 0, 0, 0.5), 0px 6px 10px rgba(0, 0, 0, 0.25);
     --cardElementTextShadow: 0px 2px 3px rgba(0, 0, 0, 0.4);
+  
+  }
+  
+  /* END OF :root selector */
+    
+    html {
+      color: var(--grey800);
+    }
+    
+    body {
+      font-size: 2rem;
+    }
+    
+    a {
+      color: var(--grey800);
+    }
+    
+    ::selection {
+      background-color: var(--sunshade500);
+    }
+    
+    /* Scrollbar Styles */
+    body::-webkit-scrollbar {
+      width: 12px;
+    }
+    html {
+      scrollbar-width: thin;
+      scrollbar-color: var(--amaranth500) var(--catalinaBlue700);
+    }
+    body::-webkit-scrollbar-track {
+      background: var(--catalinaBlue700);
+    }
+    body::-webkit-scrollbar-thumb {
+      background-color: var(--amaranth500);
+      /* border-radius: 6px; */
+      /* border: 3px solid var(--amaranth700); */
+    }
+    
+    
     
     /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
@@ -475,7 +515,7 @@ const GlobalStyle = createGlobalStyle`
       display: none;
     }
 
-  }
+  
   
 `
 export default GlobalStyle

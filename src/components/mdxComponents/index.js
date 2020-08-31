@@ -1,4 +1,5 @@
 import React from 'react'
+import Anchor from './anchor'
 import Code from './code'
 import Pre from './pre'
 import Paragraph from './paragraph'
@@ -14,6 +15,8 @@ const components = {
   h4: props => <Heading as="h4" {...props} />,
   h5: props => <Heading as="h5" {...props} />,
   h6: props => <Heading as="h6" {...props} />,
+
+  a: props => <Anchor {...props} />,
 }
 // h1: Headings.H1,
 

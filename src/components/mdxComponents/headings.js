@@ -35,8 +35,10 @@ const StyledHeading = styled.h1`
 
   &::before {
     /* Yellow square is using ems so it scales up/down with the font size */
-    width: 0.75em;
-    height: 0.75em;
+    height: 0.35em;
+    width: 5em;
+    transform: translateY(0.8em) rotate(-2deg) skew(-25deg);
+    /* width: 100%; */
     content: '';
     /* color: transparent;
     -webkit-text-fill-color: transparent; */
@@ -44,11 +46,12 @@ const StyledHeading = styled.h1`
     background: var(--sunshade600);
     /* -webkit-background-clip: text; */
     position: absolute;
+    /* top: 20px */
     z-index: -1;
-    --translate: -0.5rem;
+    /* --translate: -0.5rem;
     --rotate: 0deg;
     transform: translateX(var(--translate)) translateY(var(--translate))
-      rotate(var(--rotate));
+      rotate(var(--rotate)); */
   }
 `
 

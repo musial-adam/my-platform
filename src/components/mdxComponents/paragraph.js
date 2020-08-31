@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 const Paragraph = styled.p`
-  color: darkgrey;
+  color: black;
+  color: var(--grey800);
 `
 
 export default Paragraph
