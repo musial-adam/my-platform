@@ -35,18 +35,7 @@ const PostsNav = styled.ul`
   }
 `
 
-const ContentWrapper = styled.div`
-  /* background-color: lightgray; */
-  /* padding: 2rem; */
-
-  h1 {
-    font-size: 4rem;
-  }
-`
-
-const TestH1 = styled.h1`
-  font-size: 4rem;
-`
+const ContentWrapper = styled.div``
 
 const BlogPost = ({ data, pageContext }) => {
   const { mdx } = data

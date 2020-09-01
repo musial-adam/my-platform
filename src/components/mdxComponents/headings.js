@@ -13,8 +13,8 @@ const headingSizes = {
 }
 
 const StyledHeading = styled.h1`
-  font-size: ${headingSizes.h1}rem;
-  font-size: ${({ as }) => as && `${headingSizes[as]}rem`};
+  /* font-size: ${headingSizes.h1}rem; */
+  /* font-size: ${({ as }) => as && `${headingSizes[as]}rem`}; */
   font-weight: 800;
 
   span.gradient-text {
