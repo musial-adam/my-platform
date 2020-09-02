@@ -66,9 +66,9 @@ const BlogPost = ({ data, pageContext }) => {
 
   return (
     <ContentWrapper>
-      <h1>{mdx.frontmatter.title}</h1>
+      <Heading>{mdx.frontmatter.title}</Heading>
       <MDXRenderer>{mdx.body}</MDXRenderer>
-      <h1>Go to other posts</h1>
+      <Heading as="h2">Go to other posts</Heading>
       <nav>
         <PostsNav>
           {prevPostLink}
