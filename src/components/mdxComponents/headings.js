@@ -1,20 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-// TODO - below headings sizes are random choices, create system for headings
-
-const headingSizes = {
-  h1: 5,
-  h2: 4,
-  h3: 3,
-  h4: 2,
-  h5: 1.5,
-  h6: 1.2,
-}
-
 const StyledHeading = styled.h1`
-  /* font-size: ${headingSizes.h1}rem; */
-  /* font-size: ${({ as }) => as && `${headingSizes[as]}rem`}; */
   font-weight: 800;
 
   span.gradient-text {
